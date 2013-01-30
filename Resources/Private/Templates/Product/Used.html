@@ -1,0 +1,148 @@
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:link.action action="index"><f:translate locale="{langDetector.language}" id="product.title.singular">Product (nt)</f:translate></f:link.action>
+</f:section>
+<f:section name="Title">
+	{product.name}
+</f:section>
+<f:section name="HeaderRight">
+
+</f:section>
+
+<f:section name="Content">
+	<f:form.validationResults for="product">
+		<f:if condition="{validationResults.flattenedErrors}">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<div class="validationerror">
+					<b>{propertyPath}:</b>
+					<f:for each="{errors}" as="error">
+						{error}
+					</f:for>
+				</div>
+			</f:for>
+		</f:if>
+	</f:form.validationResults>
+
+	<f:form.validationResults for="subproduct">
+		<f:if condition="{validationResults.flattenedErrors}">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<div class="validationerror">
+					<b>{propertyPath}:</b>
+					<f:for each="{errors}" as="error">
+						{error}
+					</f:for>
+				</div>
+			</f:for>
+		</f:if>
+	</f:form.validationResults>
+
+	<div class="row">
+		<div class="span5">
+			<f:form action="usedUpdate" object="{product}" name="product" arguments="{original: original}">
+				<table class="table table-striped noHover slimInput">
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.name">Name (nt)</f:translate></th>
+						<td>{product.name}</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.price">Price (nt)</f:translate></th>
+						<td>{product.price}</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.crateSize">Crate size (nt)</f:translate></th>
+						<td>{product.crateSize}</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.purchasePrice">Purchase Price (nt)</f:translate></th>
+						<td>{product.purchasePrice}</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.deposit">Deposit (nt)</f:translate></th>
+						<td>{product.deposit}</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.position">Position (nt)</f:translate></th>
+						<td><f:form.textfield class="span1" property="position" id="position" /></td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.colWidth">ColWidth (nt)</f:translate></th>
+						<td><f:form.textfield class="span1" property="colWidth" id="colWidth" /></td>
+					</tr>
+
+					<tr>
+						<td><f:form.button class="btn btn-primary" type="submit"><i class="icon-refresh icon-white"></i> <f:translate locale="{langDetector.language}" id="control.update">Update (nt)</f:translate></f:form.button></td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</f:form>
+		</div>
+		<div class="span5 offset1">
+			<h2><f:translate locale="{langDetector.language}" id="product.limitedEditing">Limited editing (nt)</f:translate></h2>
+			<p>
+				<f:translate locale="{langDetector.language}" id="product.limitedEditingText">
+					Editing of this product is limited because it is used in the following statements and/or purchases(nt)</f:translate>
+			</p>
+			<ul>
+				<f:for each="{usedStatements}" as="usedStatement">
+					<li>
+						<f:link.action controller="statement" action="{usedStatement.stepController}" arguments="{statement: usedStatement}">{usedStatement.title}</f:link.action>
+					</li>
+				</f:for>
+				<f:for each="{usedPurchases}" as="usedPurchase">
+					<li>
+						<f:link.action controller="purchase" action="show" arguments="{purchase: usedPurchase}">{usedPurchase.invoiceNumber} - <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{usedPurchase.sum}</f:format.currency></f:link.action>
+					</li>
+				</f:for>
+			</ul>
+			<f:form action="addSubproduct" object="{subproduct}" name="subproduct" arguments="{parent: product}">
+				<h3><f:translate locale="{langDetector.language}" id="product.addDifferentCrateSize">Add different cratesize (nt)</f:translate></h3>
+				<table class="table table-striped noHover slimInput">
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.crateSize">Crate size (nt)</f:translate></th>
+						<td><f:form.textfield class="span1" property="crateSize" id="crateSize" /></td>
+					</tr>
+
+					<tr>
+						<td><f:form.button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate></f:form.button></td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</f:form>
+			<f:if condition="{subproducts}">
+				<f:then>
+					<table class="table table-striped noHover slimInput">
+						<tr>
+							<th><f:translate locale="{langDetector.language}" id="product.name">Name (nt)</f:translate></th>
+							<th><f:translate locale="{langDetector.language}" id="product.crateSize">CrateSize (nt)</f:translate></th>
+							<th>&nbsp;</th>
+						</tr>
+						<f:for each="{subproducts}" as="subproduct">
+							<tr>
+								<td>{subproduct.name}</td>
+								<td>{subproduct.cratesize}</td>
+								<td>
+									<f:if condition="{subproduct.used}">
+										<f:then>
+											&nbsp;
+										</f:then>
+										<f:else>
+											<f:link.action class="btn-small btn-danger" action="deleteSubproduct" arguments="{subproduct: subproduct}"><i class="icon-remove icon-white"></i> <f:translate locale="{langDetector.language}" id="control.delete">Delete (nt)</f:translate></f:link.action>
+										</f:else>
+									</f:if>
+								</td>
+							</tr>
+						</f:for>
+					</table>
+				</f:then>
+			</f:if>
+		</div>
+	</div>
+
+</f:section>

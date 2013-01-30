@@ -1,0 +1,58 @@
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="statement.Unbilled">Unbilled (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="statement.title">Statements (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+	<div class="btn-group btn-group-right">
+		<f:link.action class="btn btn-primary" action="new"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action>
+		<f:link.action 
+			class="btn btn-success" 
+			action="billed" 
+			controller="Statement"><i class="icon-list icon-white"></i>&nbsp;<f:translate locale="{langDetector.language}" id="statement.Billed">Billed (nt)</f:translate> <f:translate locale="{langDetector.language}" id="statement.title">Statements (nt)</f:translate>
+		</f:link.action>
+	</div> 
+</f:section>
+
+<f:section name="Content">
+	<f:if condition="{statements}">
+		<f:then>
+			<table class="table table-striped noHover">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="statement.name">Title (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="statement.startDate">From (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="statement.endDate">To (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="statement.progress">Progress (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="control.options">Options (nt)</f:translate></th>
+				</tr>
+				<f:for each="{statements}" as="statement">
+					<tr>
+						<td><f:link.action action="{statement.stepController}" arguments="{statement: statement}">{statement.title}</f:link.action></td>
+						<td>{f:format.date(date: statement.datestart, format: 'Y-m-d')}</td>
+						<td>{f:format.date(date: statement.datestop, format: 'Y-m-d')}</td>
+						<td>
+							<div class="progress slimProgress">
+								<div class="bar"
+									style="width: {statement.progress}%;"></div>
+							</div>
+						</td>
+						<td>
+							<f:link.action 
+								class="btn-small btn-danger" 
+								action="delete" 
+								controller="Statement" 
+								arguments="{statement: statement}"><i class="icon-remove icon-white"></i>&nbsp;<f:translate locale="{langDetector.language}" id="control.delete">Delete (nt)</f:translate>
+							</f:link.action> 
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p><f:translate locale="{langDetector.language}" id="statement.noStatements">No statements yet. (nt)</f:translate></p>
+		</f:else>
+	</f:if>
+</f:section>

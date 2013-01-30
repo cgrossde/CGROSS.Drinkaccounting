@@ -1,0 +1,51 @@
+<f:layout name="Default"/>
+
+<f:section name="HeaderPrefix">
+
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="purchase.title">Purchases (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+	<f:link.action class="btn btn-primary" action="new"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action>
+</f:section>
+
+<f:section name="Content">
+	<f:if condition="{purchases}">
+		<f:then>
+			<table class="table table-striped">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="purchase.invoiceNumber">InvoicNr. (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="purchase.date">Date (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="purchase.sum">Sum (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="statement.title.singular">Statement (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="control.options">Options (nt)</f:translate></th>
+				</tr>
+				<f:for each="{purchases}" as="purchase">
+					<tr>
+						<td><f:link.action action="show" arguments="{purchase: purchase}">{purchase.invoiceNumber}</f:link.action></td>
+						<td>{f:format.date(date: purchase.date, format: 'Y-m-d')}</td>
+						<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{purchase.sum}</f:format.currency></td>
+						<td>{purchase.statement.title}</td>
+						<td>
+							<f:if condition="{purchase.statement}">
+								<f:then>&nbsp;</f:then>
+								<f:else>
+									<f:link.action
+											class="btn-small btn-danger"
+											action="delete"
+											arguments="{purchase: purchase}"><i class="icon-remove icon-white"></i> <f:translate locale="{langDetector.language}" id="control.delete">Delete (nt)</f:translate>
+									</f:link.action>
+								</f:else>
+							</f:if>
+
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p><f:translate locale="{langDetector.language}" id="purchase.noPurchases">No purchases created yet. (nt)</f:translate></p>
+		</f:else>
+	</f:if>
+</f:section>

@@ -1,0 +1,111 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:link.action action="index"><f:translate locale="{langDetector.language}" id="user.title.singular">User (nt)</f:translate></f:link.action>
+</f:section>
+<f:section name="Title">
+	{user.displayName}
+</f:section>
+<f:section name="HeaderRight">
+	<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.balance}</f:format.currency>
+</f:section>
+
+<f:section name="Content">
+	<f:form.validationResults for="newPayment">
+		<f:if condition="{validationResults.flattenedErrors}">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<div class="validationerror">
+					<b>{propertyPath}:</b>
+					<f:for each="{errors}" as="error">
+						{error}
+					</f:for>
+				</div>
+			</f:for>
+		</f:if>
+	</f:form.validationResults>
+
+	<table class="table table-striped">
+		<tr>
+			<th><f:translate locale="{langDetector.language}" id="user.payment.date">Date (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="user.payment.sum">Sum (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="user.payment.newBalance">New balance (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="user.payment.description">Description (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="account.title.singular">Account</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="control.options">Options (nt)</f:translate></th>
+		</tr>
+		<f:for each="{user.payments}" as="payment" iteration="paymentIterator">
+			<tr>
+				<td>{f:format.date(date: payment.date, format: 'Y-m-d')}</td>
+				<td>
+					<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{payment.sum}</f:format.currency>
+				</td>
+				<td>
+					<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{payment.balanceNew}</f:format.currency>
+				</td>
+				<td>
+					<da:ajax object="{payment}" property="desc" arguments="{user: user}" action="drinkaccounting/payment/ajaxEdit"/>
+				</td>
+				<td>{payment.transaction.account.name}</td>
+				<f:if condition="{payment.deletable}">
+					<f:then>
+						<td>
+						<f:link.action action="cancel" controller="Payment" arguments="{user: payment.user, payment: payment}">
+							<f:translate locale="{langDetector.language}" id="control.cancel">Cancel (nt)</f:translate>
+						</f:link.action></td>
+					</f:then>
+					<f:else>
+						<td>&nbsp;</td>
+					</f:else>
+				</f:if>
+			</tr>
+		</f:for>
+		<f:form controller="Payment" arguments="{user: user, account: account}" action="create" name="newPayment" object="{newPayment}">
+			<tr>
+				<td>
+				<f:form.textfield class="input-small"  type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d')}" property="date" id="date" />
+				</td>
+				<td>
+				<f:form.textfield class="input-small" property="sum" id="sum" />
+				</td>
+				<td>&nbsp;</td>
+				<td>
+				<f:form.textfield property="desc" id="desc" />
+				</td>
+				<td>
+				<f:form.select class="input-small"  name="account" options="{accounts}" optionLabelField="name"/>
+				</td>
+				<td>
+				<f:form.button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate></f:form.button>
+				</td>
+			</tr>
+		</f:form>
+	</table>
+	<br />
+	<div class="row">
+		<div class="span4">
+			<f:form controller="User" action="changeDeposit" name="user" object="{user}" arguments="{account: account, newDeposit: newDeposit}">
+			<table class="table slimInput noHover">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="user.currentDeposit">Current deposit (nt)</f:translate></th>
+					<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.deposit}</f:format.currency></td>
+				</tr>
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="user.newDeposit">New deposit (nt)</f:translate></th>
+					<td><f:form.textfield class="span1" name="newDeposit" /></td>
+				</tr>
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="account.title.singular">Account (nt)</f:translate></th>
+					<td><f:form.select class="input-small"  name="account" options="{accounts}" optionLabelField="name" /></td>
+				</tr>
+				<tr>
+					<td>
+						<f:form.button class="btn btn-primary" type="submit"><i class="icon-refresh icon-white"></i> <f:translate locale="{langDetector.language}" id="control.update">Update (nt)</f:translate></f:form.button>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</f:form>
+		</div>
+	</div>
+</f:section>

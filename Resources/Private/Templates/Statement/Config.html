@@ -1,0 +1,152 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="statement.config">Configure (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+<f:if condition="{statement.billed}">
+		<f:then>
+			{statement.title}
+		</f:then>
+		<f:else>
+			<da:ajax
+				object="{statement}"
+				property="title"
+				class="inline ajaxHeader"
+				action="drinkaccounting/statement/ajaxUpdate"/><f:if condition="{statement.IsInitialStockStatement}"><f:then><span class="badge badge-warning"><f:translate locale="{langDetector.language}" id="statement.initialStockBadge">IS (nt)</f:translate></span></f:then></f:if>
+		</f:else>
+	</f:if>
+</f:section>
+<f:section name="HeaderRight">
+	<f:if condition="{statement.billed}">
+		<f:then>
+			<f:if condition="{statement.IsInitialStockStatement}">
+				<f:then>
+					<span class="label label-warning"><f:translate locale="{langDetector.language}" id="statement.initialStock">Initial stock statement (nt)</f:translate></span>
+				</f:then>
+				<f:else>
+					<span class="label label-success"><f:translate locale="{langDetector.language}" id="statement.isBilled">Statement is billed. (nt)</f:translate></span>
+				</f:else>
+			</f:if>
+		</f:then>
+		<f:else>
+			<div class="progress">
+				<div class="bar"
+					style="width: {progress}%;"></div>
+			</div>
+			<span class="progressBarDesc"><f:translate locale="{langDetector.language}" id="statement.step">Step (nt)</f:translate> 2 <f:translate locale="{langDetector.language}" id="statement.stepOf">of (nt)</f:translate> {steps}</span>
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="Content">
+	<div class="row">
+		<div class="span5">
+			<table class="table table-striped slimInput noHover">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="statement.startDate">From (nt)</f:translate></th>
+					<td>
+						<f:if condition="{statement.billed}">
+							<f:then>
+								{f:format.date(date: statement.dateStart, format: 'Y-m-d')}
+							</f:then>
+							<f:else>
+								<da:ajax
+									object="{statement}"
+									property="dateStart"
+									action="drinkaccounting/statement/ajaxUpdate"/>
+							</f:else>
+						</f:if>
+					</td>
+				</tr>
+
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="statement.endDate">To (nt)</f:translate></th>
+					<td>
+						<f:if condition="{statement.billed}">
+							<f:then>
+								{f:format.date(date: statement.dateStop, format: 'Y-m-d')}
+							</f:then>
+							<f:else>
+								<da:ajax
+									object="{statement}"
+									property="dateStop"
+									action="drinkaccounting/statement/ajaxUpdate"/>
+							</f:else>
+						</f:if>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="span5 offset1"><p><f:translate locale="{langDetector.language}" id="statement.configDescription">configDescription (nt)</f:translate></p>
+			<f:link.action
+				class="btn btn-primary"
+				action="printList"
+				arguments="{statement: statement}"><i class="icon-print icon-white"></i> <f:translate locale="{langDetector.language}" id="statement.printList">Print list (nt)</f:translate></f:link.action>
+		</div>
+	</div>
+	<br />
+	<f:form controller="Statement" arguments="{statement: statement, selectedUsers: selectedUsers, selectedProducts: selectedProducts}" action="updateConfig" name="Statement" object="{statement}">
+		<div class="row">
+			<div class="span4">
+				<h3><f:translate locale="{langDetector.language}" id="user.title">Users (nt)</f:translate></h3>
+				<f:form.select size="10" name="selectedUsers" value="{statement.users}" options="{users}" optionLabelField="displayName" multiple="multiple" />
+			</div>
+			<div class="span4">
+				<h3><f:translate locale="{langDetector.language}" id="product.title">Products (nt)</f:translate></h3>
+				<f:form.select size="10" name="selectedProducts" value="{statement.products}" options="{products}" optionLabelField="name" multiple="multiple" />
+			</div>
+			<div class="span4">
+				<h3><f:translate locale="{langDetector.language}" id="statement.initialStock">Initial stock statement (nt)</f:translate></h3>
+				<f:translate locale="{langDetector.language}" id="statement.initialStockDescription">initialStockDescription (nt)</f:translate>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span4">
+				<f:link.action
+						class="btn"
+						action="index"
+						controller="statement"
+						arguments="{statement: statement}"><i class="icon-arrow-left"></i> <f:translate locale="{langDetector.language}" id="statement.returnToStatementlist">Return to Statementlist (nt)</f:translate></f:link.action>
+			</div>
+			<div class="span4 alignCenter">
+				<f:if condition="{statement.billed}">
+					<f:then>
+						<f:if condition="{statement.IsInitialStockStatement}">
+							<f:then>
+								<span class="label label-warning"><f:translate locale="{langDetector.language}" id="statement.initialStock">Initial stock statement (nt)</f:translate></span>
+							</f:then>
+							<f:else>
+								<span class="label label-success"><f:translate locale="{langDetector.language}" id="statement.isBilled">Statement is billed. (nt)</f:translate></span>
+							</f:else>
+						</f:if>
+					</f:then>
+					<f:else>
+						<f:form.button class="btn btn-primary" type="submit"><i class="icon-refresh icon-white"></i> <f:translate locale="{langDetector.language}" id="control.update">Update (nt)</f:translate></f:form.button>
+					</f:else>
+				</f:if>
+			</div>
+			<div class="span4 alignRight">
+				<f:if condition="{statement.IsInitialStockStatement}">
+					<f:then>
+						<f:link.action
+							class="btn"
+							action="stocks"
+							arguments="{statement: statement}"><f:translate locale="{langDetector.language}" id="statement.continueToStocks">Continue to Stocks (nt)</f:translate> <i class="icon-arrow-right"></i></f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action
+							class="btn"
+							action="purchases"
+							arguments="{statement: statement}"><f:translate locale="{langDetector.language}" id="statement.continueToPurchases">Continue to Purchases (nt)</f:translate> <i class="icon-arrow-right"></i></f:link.action>
+					</f:else>
+				</f:if>
+			</div>
+		</div>
+
+		<input type="hidden" name="selectedUsers[]" value="noneSelectedWorkaround">
+		<input type="hidden" name="selectedProducts[]" value="noneSelectedWorkaround">
+	</f:form>
+</f:section>

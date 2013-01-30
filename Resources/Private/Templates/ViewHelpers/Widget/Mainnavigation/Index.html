@@ -1,0 +1,86 @@
+<ul class="nav">
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<f:translate locale="{langDetector.language}" id="statement.title">Statements (nt)</f:translate>&nbsp;<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li class="nav-header"><f:translate locale="{langDetector.language}" id="mainnav.statement.unbilled">Unbilled (nt)</f:translate></li>
+			<f:for each="{statements}" as="statement">
+				<li><f:link.action
+						arguments="{statement: statement}"
+						package="cgross.drinkaccounting"
+						action="{statement.stepController}"
+						controller="Statement">{statement.title}</f:link.action></li>
+			</f:for>
+			<li class="divider"></li>
+			<li class="nav-header"><f:translate locale="{langDetector.language}" id="mainnav.actions">Actions (nt)</f:translate></li>
+			<li><f:link.action action="billed" controller="Statement"><i class="icon-list"></i> <f:translate locale="{langDetector.language}" id="mainnav.statement.listBilled">List billed (nt)</f:translate></f:link.action></li>
+			<li><f:link.action action="new" controller="Statement"><i class="icon-plus"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action></li>
+		</ul>
+	</li>
+	<li class="divider-vertical"></li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<f:translate locale="{langDetector.language}" id="account.title">Accounts (nt)</f:translate>&nbsp;<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<f:for each="{accounts}" as="account">
+				<li><f:link.action
+						arguments="{account: account}"
+						package="cgross.drinkaccounting"
+						action="show"
+						controller="Account">{account.name}</f:link.action></li>
+			</f:for>
+			<li class="divider"></li>
+			<li class="nav-header"><f:translate locale="{langDetector.language}" id="mainnav.actions">Actions (nt)</f:translate></li>
+			<li><f:link.action action="index" controller="Account"><i class="icon-list"></i> <f:translate locale="{langDetector.language}" id="control.list">List (nt)</f:translate></f:link.action></li>
+			<li><f:link.action action="new" controller="Account"><i class="icon-plus"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<f:translate locale="{langDetector.language}" id="user.title">Users (nt)</f:translate>&nbsp;<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li>
+				<ul class="userNav">
+					<f:for each="{users}" as="user">
+						<li><f:link.action
+								arguments="{user: user}"
+								package="cgross.drinkaccounting"
+								action="show"
+								controller="User"><i class="icon-user"></i> {user.displayName}</f:link.action>
+						</li>
+					</f:for>
+				</ul>
+			</li>
+			<li class="divider"></li>
+			<li class="nav-header"><f:translate locale="{langDetector.language}" id="mainnav.actions">Actions (nt)</f:translate></li>
+			<li><f:link.action action="index" controller="User"><i class="icon-list"></i> <f:translate locale="{langDetector.language}" id="control.list">List (nt)</f:translate></f:link.action></li>
+			<li><f:link.action action="new" controller="User"><i class="icon-plus"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action></li>
+		</ul>
+
+	</li>
+		<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<f:translate locale="{langDetector.language}" id="product.title">Products (nt)</f:translate>&nbsp;<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<f:for each="{products}" as="product">
+				<li><f:link.action
+						arguments="{product: product}"
+						package="cgross.drinkaccounting"
+						action="edit"
+						controller="Product">{product.name}</f:link.action></li>
+			</f:for>
+			<li class="divider"></li>
+			<li class="nav-header"><f:translate locale="{langDetector.language}" id="mainnav.actions">Actions (nt)</f:translate></li>
+			<li><f:link.action action="index" controller="Product"><i class="icon-list"></i> <f:translate locale="{langDetector.language}" id="control.list">List (nt)</f:translate></f:link.action></li>
+			<li><f:link.action action="new" controller="Product"><i class="icon-plus"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action></li>
+		</ul>
+
+	</li>
+	<li>
+		<f:link.action package="cgross.drinkaccounting" action="index" controller="Purchase"><f:translate locale="{langDetector.language}" id="purchase.title">Purchases (nt)</f:translate></f:link.action>
+	</li>
+</ul>

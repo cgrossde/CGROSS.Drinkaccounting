@@ -1,0 +1,465 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file original="" source-language="en" target-language="de" datatype="plaintext">
+		<body>
+			<!-- General -->
+			<trans-unit id="app.name" approved="yes">
+				<source>DrinkAccounting</source> <target state="translated">GetränkeAbrechnung</target> </trans-unit>
+			<trans-unit id="view.print" approved="yes">
+				<source>Print</source>
+				<target state="translated">Drucken</target>
+			</trans-unit>
+
+			<!-- Main Navigation -->
+			<trans-unit id="mainnav.statement.unbilled" approved="yes">
+				<source>Unbilled</source>
+				<target state="translated">offen</target>
+			</trans-unit>
+			<trans-unit id="mainnav.statement.listBilled" approved="yes">
+				<source>List billed</source>
+				<target state="translated">Liste</target>
+			</trans-unit>
+			<trans-unit id="mainnav.actions" approved="yes">
+				<source>Actions</source>
+				<target state="translated">Optionen</target>
+			</trans-unit>
+
+			<!-- Controls -->
+			<trans-unit id="control.new" approved="yes">
+				<source>New</source>
+				<target state="translated">Neu</target>
+			</trans-unit>
+			<trans-unit id="control.create" approved="yes">
+				<source>Create</source>
+				<target state="translated">Erstellen</target>
+			</trans-unit>
+			<trans-unit id="control.list" approved="yes">
+				<source>List</source>
+				<target state="translated">Liste</target>
+			</trans-unit>
+			<trans-unit id="control.edit" approved="yes">
+				<source>Edit</source>
+				<target state="translated">Bearbeiten</target>
+			</trans-unit>
+			<trans-unit id="control.delete" approved="yes">
+				<source>Delete</source>
+				<target state="translated">Löschen</target>
+			</trans-unit>
+			<trans-unit id="control.cancel" approved="yes">
+				<source>Cancel</source>
+				<target state="translated">Annulieren</target>
+			</trans-unit>
+			<trans-unit id="control.options">
+				<source>Options</source>
+				<target>Options</target>
+			</trans-unit>
+			<trans-unit id="control.update" approved="yes">
+				<source>Update</source>
+				<target state="translated">Speichern</target>
+			</trans-unit>
+			<trans-unit id="control.activate" approved="yes">
+				<source>Activate</source>
+				<target state="translated">Aktivieren</target>
+			</trans-unit>
+			<trans-unit id="control.deactivate" approved="yes">
+				<source>Deactivate</source>
+				<target state="translated">Deaktivieren</target>
+			</trans-unit>
+			<trans-unit id="control.show" approved="yes">
+				<source>Show</source>
+				<target state="translated">Anzeigen</target>
+			</trans-unit>
+
+			<!-- Overview -->
+			<trans-unit id="overview.title" approved="yes">
+				<source>Overview</source>
+				<target state="translated">Übersicht</target>
+			</trans-unit>
+			<trans-unit id="overview.statement.latest" approved="yes">
+				<source>Latest statements</source>
+				<target state="translated">Letzte Abrechnungen</target>
+			</trans-unit>
+			<trans-unit id="overview.user.top5" approved="yes">
+				<source>Balance (top 5)</source>
+				<target state="translated">Kontostand (Top 5)</target>
+			</trans-unit>
+
+			<!-- Account -->
+			<trans-unit id="account.title" approved="yes">
+				<source>Accounts</source>
+				<target state="translated">Konten</target>
+			</trans-unit>
+			<trans-unit id="account.title.singular" approved="yes">
+				<source>Account</source>
+				<target state="translated">Konto</target>
+			</trans-unit>
+			<trans-unit id="account.balance" approved="yes">
+				<source>Balance</source>
+				<target state="translated">Kontostand</target>
+			</trans-unit>
+			<trans-unit id="account.name" approved="yes">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+			<trans-unit id="account.sum" approved="yes">
+				<source>Sum</source>
+				<target state="translated">Betrag</target>
+			</trans-unit>
+			<trans-unit id="account.control.rebook" approved="yes">
+				<source>Rebook</source>
+				<target state="translated">Umbuchen</target>
+			</trans-unit>
+			<trans-unit id="account.rebook" approved="yes">
+				<source>Rebook</source>
+				<target state="translated">Umbuchung</target>
+			</trans-unit>
+			<trans-unit id="account.transaction.date" approved="yes">
+				<source>Date</source>
+				<target state="translated">Datum</target>
+			</trans-unit>
+			<trans-unit id="account.transaction.sum" approved="yes">
+				<source>Sum</source>
+				<target state="translated">Betrag</target>
+			</trans-unit>
+			<trans-unit id="account.transaction.desc" approved="yes">
+				<source>Desc</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="account.transaction.newBalance" approved="yes">
+				<source>New balance</source>
+				<target state="translated">Neuer Kontostand</target>
+			</trans-unit>
+			<trans-unit id="account.noAccounts" approved="yes">
+				<source>No accounts created yet.</source>
+				<target state="translated">Noch keine Konten angelegt.</target>
+			</trans-unit>
+			<trans-unit id="account.newAccount" approved="yes">
+				<source>New Account</source>
+				<target state="translated">Neues Konto</target>
+			</trans-unit>
+
+			<!-- User -->
+			<trans-unit id="user.title" approved="yes">
+				<source>Users</source>
+				<target state="translated">Benutzer</target>
+			</trans-unit>
+			<trans-unit id="user.title.singular" approved="yes">
+				<source>Users</source>
+				<target state="translated">Benutzer</target>
+			</trans-unit>
+			<trans-unit id="user.roomNumber" approved="yes">
+				<source>RoomNr.</source>
+				<target state="translated">ZimmerNr.</target>
+			</trans-unit>
+			<trans-unit id="user.nick" approved="yes">
+				<source>Nick</source>
+				<target state="translated">Nick</target>
+			</trans-unit>
+			<trans-unit id="user.name" approved="yes">
+				<source>Name</source>
+				<target state="translated">Nachname</target>
+			</trans-unit>
+			<trans-unit id="user.surname" approved="yes">
+				<source>Surname</source>
+				<target state="translated">Vorname</target>
+			</trans-unit>
+			<trans-unit id="user.balance" approved="yes">
+				<source>Balance</source>
+				<target state="translated">Konto</target>
+			</trans-unit>
+			<trans-unit id="user.deposit" approved="yes">
+				<source>Deposit</source>
+				<target state="translated">Kaution</target>
+			</trans-unit>
+			<trans-unit id="user.active" approved="yes">
+				<source>Active</source>
+				<target state="translated">Aktiv</target>
+			</trans-unit>
+			<trans-unit id="user.inactive" approved="yes">
+				<source>Inactive</source>
+				<target state="translated">Inaktiv</target>
+			</trans-unit>
+			<trans-unit id="user.newUser" approved="yes">
+				<source>New User</source>
+				<target state="translated">Neuer Benutzer</target>
+			</trans-unit>
+			<trans-unit id="user.payment.date" approved="yes">
+				<source>Date</source>
+				<target state="translated">Datum</target>
+			</trans-unit>
+			<trans-unit id="user.payment.sum" approved="yes">
+				<source>Sum</source>
+				<target state="translated">Betrag</target>
+			</trans-unit>
+			<trans-unit id="user.payment.newBalance" approved="yes">
+				<source>New balance</source>
+				<target state="translated">Neuer Kontostand</target>
+			</trans-unit>
+			<trans-unit id="user.payment.description" approved="yes">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="user.noUsers" approved="yes">
+				<source>No users created yet.</source>
+				<target state="translated">Noch keine Benutzer angelegt.</target>
+			</trans-unit>
+			<trans-unit id="user.currentDeposit" approved="yes">
+				<source>Current deposit</source>
+				<target state="translated">Aktuelle Kaution</target>
+			</trans-unit>
+			<trans-unit id="user.newDeposit" approved="yes">
+				<source>New deposit</source>
+				<target state="translated">Neue Kaution</target>
+			</trans-unit>
+
+			<!-- Statement -->
+			<trans-unit id="statement.title" approved="yes">
+				<source>Statements</source>
+				<target state="translated">Abrechnungen</target>
+			</trans-unit>
+			<trans-unit id="statement.title.singular" approved="yes">
+				<source>Statement</source>
+				<target state="translated">Abrechnung</target>
+			</trans-unit>
+			<trans-unit id="statement.status" approved="yes">
+				<source>Status</source>
+				<target state="translated">Status</target>
+			</trans-unit>
+			<trans-unit id="statement.billed" approved="yes">
+				<source>billed</source>
+				<target state="translated">verrechnet</target>
+			</trans-unit>
+			<trans-unit id="statement.unbilled" approved="yes">
+				<source>unbilled</source>
+				<target state="translated">offen</target>
+			</trans-unit>
+			
+			<trans-unit id="statement.Billed">
+				<source>Billed</source>
+				<target state="translated">Verrechnete</target>
+			</trans-unit>
+			
+			<trans-unit id="statement.Unbilled">
+				<source>Unbilled</source>
+				<target state="translated">Offene</target>
+			</trans-unit>
+			
+			<trans-unit id="statement.name" approved="yes">
+				<source>Title</source> <target state="translated">Titel</target></trans-unit>
+			
+			<trans-unit id="statement.startDate" approved="yes">
+				<source>From</source> <target state="translated">Von</target></trans-unit>
+			
+			<trans-unit id="statement.endDate" approved="yes">
+				<source>To</source> <target state="translated">Bis</target></trans-unit>
+			
+			<trans-unit id="statement.progress" approved="yes">
+				<source>Progress</source> <target state="translated">Fortschritt</target></trans-unit>
+			
+			<trans-unit id="statement.newStatement" approved="yes">
+				<source>New statement</source> <target state="translated">Neue Abrechnung</target></trans-unit>
+			
+			<trans-unit id="statement.step" approved="yes">
+				<source>Step</source> <target state="translated">Schritt</target></trans-unit>
+			
+			<trans-unit id="statement.stepOf" approved="yes">
+				<source>of</source> <target state="translated">von</target></trans-unit>
+			
+			<trans-unit id="statement.config" approved="yes">
+				<source>Configure</source> <target state="translated">Einstellungen</target></trans-unit>
+			
+			<trans-unit id="statement.configDescription" approved="yes">
+				<source>Defines which users and products are part of the statement.<br/> Use button below for printing a list to keep track of consumption.</source> <target state="translated">Definiert welche Benutzer und Produkte in diese Abrechnung miteinbezogen werden sollen.</target></trans-unit>
+			
+			<trans-unit id="statement.initialStockDescription" approved="yes">
+				<source>With no users selected, this statement becomes an initial stock statement to help you switch from your old system. <br/>Keep in mind not to select an initial stock under stocks in this wizard. <br/>Initial stock statements are marked with an <span class="badge badge-warning">IS</span> badge.</source> <target state="translated">Falls keine Benutzer ausgewählt werden, wird diese Abrechnung als Anfangslagerbestands-Abrechnung makiert. Denken Sie dann daran im nächsten Schritt keinen Anfangslagerbestand auszuwählen. Anfangslagerbestands-Abrechnungen werden mit <span class="badge badge-warning">AL</span> im Titel makiert.</target></trans-unit>
+			
+			<trans-unit id="statement.initialStock" approved="yes">
+				<source>Initial stock statement</source> <target state="translated">Anfangslagerbestands Abrechnung</target></trans-unit>
+			
+			<trans-unit id="statement.initialStockBadge" approved="yes">
+				<source>IS</source> <target state="translated">AL</target></trans-unit>
+			
+			<trans-unit id="statement.isBilled" approved="yes">
+				<source>Statement is billed.</source> <target state="translated">Abrechnung ist gebucht.</target></trans-unit>
+			
+			<trans-unit id="statement.returnToStatementlist" approved="yes">
+				<source>Return to Statementlist</source> <target state="translated">Zurück zur Abrechnungsübersicht</target></trans-unit>
+			
+			<trans-unit id="statement.returnToConfig" approved="yes">
+				<source>Return to Config</source> <target state="translated">Zurück zu Einstellungen</target></trans-unit>
+			
+			<trans-unit id="statement.returnToStocks" approved="yes">
+				<source>Return to Stocks</source> <target state="translated">Zurück zum Lagerbestand</target></trans-unit>
+			
+			<trans-unit id="statement.returnToPurchases" approved="yes">
+				<source>Return to Purchases</source> <target state="translated">Zurück zu den Einkäufen</target></trans-unit>
+			
+			<trans-unit id="statement.returnToConsumption" approved="yes">
+				<source>Return to Consumption</source> <target state="translated">Zurück zum Verbrauch</target></trans-unit>
+			
+			<trans-unit id="statement.continueToStocks" approved="yes">
+				<source>Continue to Stocks</source> <target state="translated">Weiter zum Lagerbestand</target></trans-unit>
+			
+			<trans-unit id="statement.continueToPurchases" approved="yes">
+				<source>Continue to Purchases</source> <target state="translated">Weiter zu den Einkäufen</target></trans-unit>
+			
+			<trans-unit id="statement.continueToConsumption" approved="yes">
+				<source>Continue to Consumption</source> <target state="translated">Weiter zum Verbrauch</target></trans-unit>
+			
+			<trans-unit id="statement.continueToFinal" approved="yes">
+				<source>Continue to final Statement</source> <target state="translated">Weiter zur fertigen Abrechnung</target></trans-unit>
+			
+			<trans-unit id="statement.printList" approved="yes">
+				<source>Print list</source> <target state="translated">Strichliste drucken</target></trans-unit>
+			
+			<trans-unit id="statement.stocks" approved="yes">
+				<source>Stocks</source> <target state="translated">Lagerbestand</target></trans-unit>
+			
+			<trans-unit id="statement.purchases" approved="yes">
+				<source>Purchases</source> <target state="translated">Einkäufe</target></trans-unit>
+			
+			<trans-unit id="statement.purchasesDescription" approved="yes">
+				<source>Select purchases made within statement time range and/or add purchases.</source> <target state="translated">Wählen sie die getätigten Einkäufe zu diesem Abrechnungszeitraum aus.</target></trans-unit>
+			
+			<trans-unit id="statement.consumption" approved="yes">
+				<source>Consumption</source> <target state="translated">Verbrauch</target></trans-unit>
+			
+			<trans-unit id="statement.final" approved="yes">
+				<source>Final</source> <target state="translated">Abschluss</target></trans-unit>
+
+						<trans-unit id="statement.initialStockSelect" approved="yes">
+				<source>Select statement with initial stock</source> <target state="translated">Abrechnung des Anfangslagerbestands</target></trans-unit>
+			
+			<trans-unit id="statement.stocksDescription" approved="yes">
+				<source>Select statement with initial stock and enter stock of current statement.</source> <target state="translated">Wählen Sie die Abrechnung für den Anfangslagerbestand aus und geben Sie den aktuellen Lagerbestand ein.</target></trans-unit>
+			
+			<trans-unit id="statement.initialStockBottles" approved="yes">
+				<source>Initial Stock</source> <target state="translated">Anfangslagerbestand</target></trans-unit>
+			
+			<trans-unit id="statement.currentStock" approved="yes">
+				<source>Current stock</source> <target state="translated">Aktueller Lagerbestand</target></trans-unit>
+			
+			<trans-unit id="statement.purchasedBottles" approved="yes">
+				<source>Purchased bottles</source> <target state="translated">Eingekaufte Flaschen</target></trans-unit>
+			
+			<trans-unit id="statement.consumptionInclLoss" approved="yes">
+				<source>Consumption (incl. loss)</source> <target state="translated">Verbrauch inkl. Verlust</target></trans-unit>
+			
+			<trans-unit id="statement.soldBottles" approved="yes">
+				<source>Sold bottles</source> <target state="translated">Verkaufte Flaschen</target></trans-unit>
+			
+			<trans-unit id="statement.lostBottles" approved="yes">
+				<source>Loss</source> <target state="translated">Verlust</target></trans-unit>
+			
+			<trans-unit id="statement.totalLoss" approved="yes">
+				<source>Total loss:</source> <target state="translated">Gesamtverlust:</target></trans-unit>
+			
+			<trans-unit id="statement.completeStatement" approved="yes">
+				<source>Complete Statement</source> <target state="translated">Abrechnung abschließen</target></trans-unit>
+			
+			<trans-unit id="statement.currentStatement" approved="yes">
+				<source>Current</source> <target state="translated">Aktuell</target></trans-unit>
+			
+			<trans-unit id="statement.oldBalance" approved="yes">
+				<source>Old balance</source> <target state="translated">Alter Kontostand</target></trans-unit>
+			
+			<trans-unit id="statement.lossFee" approved="yes">
+				<source>Lossfee</source> <target state="translated">Verlustumlage</target></trans-unit>
+			
+			<trans-unit id="statement.newBalance" approved="yes">
+				<source>New balance</source> <target state="translated">Neuer Kontostand</target></trans-unit>
+			
+			<trans-unit id="statement.noStatements">
+				<source>No statements yet.</source>
+				<target>Noch keine Abrechnungen.</target>
+			</trans-unit>
+			
+			<!-- Purchase -->
+			<trans-unit id="purchase.title" approved="yes">
+				<source>Purchases</source> <target state="translated">Einkäufe</target> </trans-unit>
+			<trans-unit id="purchase.title.singular" approved="yes">
+				<source>Purchase</source>
+				<target state="translated">Einkauf</target>
+			</trans-unit>
+			<trans-unit id="purchase.invoiceNumber" approved="yes">
+				<source>InvoiceNr.</source>
+				<target state="translated">RechNr.</target>
+			</trans-unit>
+			<trans-unit id="purchase.date" approved="yes">
+				<source>Date</source>
+				<target state="translated">Datum</target>
+			</trans-unit>
+			<trans-unit id="purchase.sum" approved="yes">
+				<source>Sum</source>
+				<target state="translated">Rechnungsbetrag</target>
+			</trans-unit>
+			<trans-unit id="purchase.noPurchases" approved="yes">
+				<source>No purchases created yet.</source>
+				<target state="translated">Noch keine Einkäufe angelegt.</target>
+			</trans-unit>
+			<trans-unit id="purchase.newPurchase" approved="yes">
+				<source>New Purchase</source>
+				<target state="translated">Neuer Einkauf</target>
+			</trans-unit>
+			<trans-unit id="purchase.position.crateAmount" approved="yes">
+				<source>Crates</source>
+				<target state="translated">Kästen</target>
+			</trans-unit>
+			<trans-unit id="purchase.position.bottleAmount" approved="yes">
+				<source>Bottles</source>
+				<target state="translated">Flaschen</target>
+			</trans-unit>
+
+			<!-- Product -->
+			<trans-unit id="product.title" approved="yes">
+				<source>Products</source>
+				<target state="translated">Produkte</target>
+			</trans-unit>
+			<trans-unit id="product.title.singular" approved="yes">
+				<source>Product</source>
+				<target state="translated">Produkt</target>
+			</trans-unit>
+			<trans-unit id="product.name" approved="yes">
+				<source>Name</source>
+				<target state="translated">Produktbezeichnung</target>
+			</trans-unit>
+			<trans-unit id="product.price" approved="yes">
+				<source>Price</source>
+				<target state="translated">Verkaufspreis</target>
+			</trans-unit>
+			<trans-unit id="product.averagePrice" approved="yes">
+				<source>Average price</source>
+				<target state="translated">Durschnittl. Preis</target>
+			</trans-unit>
+			<trans-unit id="product.crateSize" approved="yes">
+				<source>Crate size</source>
+				<target state="translated">Kastengröße</target>
+			</trans-unit>
+			<trans-unit id="product.purchasePrice" approved="yes">
+				<source>Purchase price</source>
+				<target state="translated">Einkaufspreis</target>
+			</trans-unit>
+			<trans-unit id="product.deposit" approved="yes">
+				<source>Deposit</source>
+				<target state="translated">Pfand</target>
+			</trans-unit>
+			<trans-unit id="product.active" approved="yes">
+				<source>Active</source>
+				<target state="translated">Aktiv</target>
+			</trans-unit>
+			<trans-unit id="product.position" approved="yes">
+				<source>Position</source>
+				<target state="translated">Position</target>
+			</trans-unit>
+			<trans-unit id="product.noProducts" approved="yes">
+				<source>No products created yet.</source>
+				<target state="translated">Nch keine Produkte angelegt.</target>
+			</trans-unit>
+			<trans-unit id="product.newProduct" approved="yes">
+				<source>New Product</source>
+				<target state="translated">Neues Produkt</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

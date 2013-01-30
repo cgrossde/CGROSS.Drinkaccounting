@@ -1,0 +1,153 @@
+/* No Print tag */
+
+@media print {
+	/* ... Formatdefinitionen zum Drucken ... */
+	.noPrint {
+		display: none;
+	}
+	
+	body {
+		color: #000000;
+	}
+}
+
+
+
+.alignRight,
+.table td.alignRight,
+.table th.alignRight {
+	text-align: right;
+}
+	.table td.alignRight,
+	.table th.alignRight {
+		margin-right: 50%;
+	}
+
+.alignLeft 
+.table td.alignLeft,
+.table th.alignLeft {
+	text-align: left;
+}
+
+.alignCenter {
+	text-align: center;
+}
+
+.headerPrefix, .headerPrefix a {
+	color: grey;
+}
+
+.h1 {
+	font-size: 30px;
+	line-height: 36px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-weight: bold;
+}
+
+.inline {
+	display: inline;
+}
+
+.posRelative {
+	position: relative;
+}
+
+.slim , input.slim{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.btn-group-right {
+	display: inline;
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+.progressBarDesc {
+	display: block;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 20px;
+	margin-top: -19px;
+	text-align: center;
+}
+
+.header .progress {
+	margin-bottom: 0;
+	margin-top: 10px;
+}
+
+.header .bar {
+	background-image: -moz-linear-gradient(center top , #59BDEF, #149BDF);
+}
+
+.ajaxHeader i {
+	margin-top: 16px;
+}
+
+ul.userNav{
+	height: 190px;
+	list-style: none outside none;
+	margin: 0;
+	overflow-y: scroll;
+}
+/* Set up the document
+-----------------------------------------------------------------------------*/
+body {
+	padding-top: 50px;
+}
+
+#navigation {
+		
+}
+
+#content {
+		background-color: #FFFFFF;
+}
+
+.btn-primary:hover, 
+.btn-warning:hover,
+.btn-danger:hover,
+.btn-success:hover, 
+.btn-info:hover, 
+.btn-inverse:hover {
+	text-decoration: none;
+}
+
+.btn-small [class^="icon-"] {
+	margin-top: 0;
+}
+
+table.slimInput input[type="text"], 
+table.slimInput input[type="datetime"],
+table.slimInput select {
+	margin-bottom: 0;
+}
+
+.progress.slimProgress {
+	margin-bottom: 0;
+}
+
+.table.noHover tbody tr:hover td, .table.noHover tbody tr:hover th {
+	background-color: inherit;
+}
+
+.table-striped.noHover tbody tr:nth-child(2n+1):hover td, .table-striped.noHover tbody tr:nth-child(2n+1):hover th {
+	background-color: #F9F9F9;
+}
+
+table.consumption td,
+table.consumption th {
+	padding: 4px;
+}
+table.consumption td input {
+	height: 12px;
+}
+
+.newHover tbody tr:hover td, 
+.newHover tbody tr:hover th {
+	background-color: #E0F2FF;
+}

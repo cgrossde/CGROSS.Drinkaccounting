@@ -1,0 +1,91 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<f:layout name="Default"/>
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="purchase.title">Purchases (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+	{statement.title}<f:if condition="{statement.IsInitialStockStatement}"><f:then><span class="badge badge-warning"><f:translate locale="{langDetector.language}" id="statement.initialStockBadge">IS (nt)</f:translate></span></f:then></f:if>
+</f:section>
+<f:section name="HeaderRight">
+	<f:if condition="{statement.billed}">
+		<f:then>
+			<span class="label label-success"><f:translate locale="{langDetector.language}" id="statement.isBilled">Statement is billed. (nt)</f:translate></span>
+		</f:then>
+		<f:else>
+			<div class="progress">
+				<div class="bar"
+					style="width: {progress}%;">
+				</div>
+			</div>
+			<span class="progressBarDesc"><f:translate locale="{langDetector.language}" id="statement.step">Step (nt)</f:translate> 3 <f:translate locale="{langDetector.language}" id="statement.stepOf">of (nt)</f:translate> {steps}</span>
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="Content">
+	<f:form controller="Statement" arguments="{statement: statement, selectedPurchases: selectedPurchases}" action="updatePurchases" name="Statement" object="{statement}">
+		<div class="row">
+			<div class="span4">
+				<h2><f:translate locale="{langDetector.language}" id="purchase.title">Purchases (nt)</f:translate></h2>
+				<f:form.select name="selectedPurchases" value="{statement.purchases}" options="{purchases}" optionLabelField="displayName" multiple="10" />
+			</div>
+			<div class="span6 offset1"><p>
+				<f:translate locale="{langDetector.language}" id="statement.purchasesDescription">Purchases Desc (nt)</f:translate>
+				<br>
+				<f:if condition="{inactiveProducts}">
+					<f:then>
+						<div class="alert">
+							<h4><f:translate locale="{langDetector.language}" id="statement.purchasesWarning">Warning!</f:translate></h4>
+							<f:translate locale="{langDetector.language}" id="statement.purchasesWarningDesc"> You have products in your purchases that are not part of this statement. You can either add them to your statement or remove them from the corresponding purchases. You can't finish this statement until this is resolved. (nt)</f:translate>
+							<br />
+							<br />
+							<ul>
+								<f:for each="{inactiveProducts}" as="product">
+									<li>
+										<strong>{product.name}</strong>
+										<ul>
+											<f:for each="{product.purchases}" as="purchase">
+												<li>
+													<f:link.action controller="purchase" action="show" arguments="{purchase: purchase}">{purchase.displayName}</f:link.action>
+												</li>
+											</f:for>
+										</ul>
+									</li>
+								</f:for>
+							</ul>
+						</div>
+					</f:then>
+				</f:if>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span4">
+				<f:link.action
+						class="btn"
+						action="config"
+						controller="statement"
+						arguments="{statement: statement}"><i class="icon-arrow-left"></i> <f:translate locale="{langDetector.language}" id="statement.returnToConfig">Return to Config (nt)</f:translate></f:link.action>
+			</div>
+			<div class="span4 alignCenter">
+				<f:if condition="{statement.billed}">
+					<f:then>
+						<span class="label label-warning"><f:translate locale="{langDetector.language}" id="statement.initialStock">Initial stock statement (nt)</f:translate></span>
+					</f:then>
+					<f:else>
+						<f:form.button class="btn btn-primary" type="submit"><i class="icon-refresh icon-white"></i> <f:translate locale="{langDetector.language}" id="control.update">Update (nt)</f:translate></f:form.button>
+					</f:else>
+				</f:if>
+			</div>
+			<div class="span4 alignRight">
+				<f:link.action
+					class="btn"
+					action="stocks"
+					arguments="{statement: statement}"><f:translate locale="{langDetector.language}" id="statement.continueToStocks">Continue to Stocks (nt)</f:translate> <i class="icon-arrow-right"></i></f:link.action>
+			</div>
+		</div>
+
+		<input type="hidden" name="selectedPurchases[]" value="noneSelectedWorkaround">
+	</f:form>
+</f:section>

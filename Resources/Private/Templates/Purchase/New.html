@@ -1,0 +1,80 @@
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="purchase.newPurchase">New Purchase (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+	
+</f:section>
+
+<f:section name="Content">
+	<f:form.validationResults for="newPurchase">
+		<f:if condition="{validationResults.flattenedErrors}">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<div class="validationerror">
+					<b>{propertyPath}:</b>
+					<f:for each="{errors}" as="error">
+						{error}
+					</f:for>
+				</div>
+			</f:for>
+		</f:if>
+	</f:form.validationResults>
+
+	<f:form action="create" name="newPurchase" arguments="{account: account}">
+	<div class="row">
+			<div class="span5">
+				<table class="table table-striped slimInput noHover">
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="purchase.date">Date (nt)</f:translate></th>
+						<td>
+						<f:form.textfield class="span2" type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d')}" property="date" id="date" />
+						</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="purchase.invoiceNumber">InvoicNr. (nt)</f:translate></th>
+						<td>
+						<f:form.textfield class="span2" property="invoiceNumber" id="invoiceNumber" />
+						</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="purchase.sum">Sum (nt)</f:translate></th>
+						<td>
+						<f:form.textfield class="span2" property="sum" id="sum" />
+						</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="account.title.singular">Account (nt)</f:translate></th>
+						<td>
+						<f:form.select class="span2" name="account" options="{accounts}" optionLabelField="name" />
+						</td>
+					</tr>
+
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="statement.title.singular">Statement (nt)</f:translate></th>
+						<td>
+						<f:form.select property="statement" name="statement" options="{statements}" optionLabelField="title" prependOption="- none -"/>
+						</td>
+					</tr>
+
+					<tr>
+						<td>&nbsp;</td>
+						<td class="alignRight">
+						<f:form.button class="btn btn-primary" type="submit">
+							<i class="icon-plus icon-white"></i>
+							<f:translate locale="{langDetector.language}" id="control.create">
+								Create (nt)
+							</f:translate>
+						</f:form.button></td>
+					</tr>
+				</table>
+			</div>
+	</div>
+	</f:form>
+</f:section>

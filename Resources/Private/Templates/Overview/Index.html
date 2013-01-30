@@ -1,0 +1,87 @@
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="overview.title">Overview (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+</f:section>
+
+<f:section name="Content">
+	<div class="row">
+		<div class="span5">
+			<table class="table table-striped noHover">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="account.title">Account (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="account.balance">Balance (nt)</f:translate></th>
+				</tr>
+				<f:for each="{accounts}" as="account">
+					<tr>
+						<td><f:link.action action="show" arguments="{account: account}" controller="Account">{account.name}</f:link.action></td>
+						<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{account.balance}</f:format.currency></td>
+					</tr>
+				</f:for>
+			</table>
+		</div>
+		<div class="span5 offset2">
+			<table class="table table-striped noHover">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="overview.statement.latest">Latest statements (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="statement.status">Status (nt)</f:translate></th>
+				</tr>
+				<f:for each="{statements}" as="statement">
+					<tr>
+						<td><f:link.action action="{statement.stepController}" controller="Statement" arguments="{statement: statement}">{statement.title}</f:link.action></td>
+						<td>
+							<f:if condition="{statement.billed}">
+								<f:then>
+									<span class="badge badge-success"><f:translate locale="{langDetector.language}" id="statement.billed">billed (nt)</f:translate></span>
+								</f:then>
+								<f:else>
+									<span class="badge badge-warning"><f:translate locale="{langDetector.language}" id="statement.unbilled">unbilled (nt)</f:translate></span>
+								</f:else>
+							</f:if>
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span5">
+			<table class="table table-striped noHover">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="user.title.singular">User (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="overview.user.top5">Balance (top5) (nt)</f:translate></th>
+				</tr>
+				<f:for each="{users}" as="user">
+					<tr>
+						<td><f:link.action action="show" controller="User" arguments="{user: user}">{user.displayName}</f:link.action></td>
+						<td>
+							<f:if condition="{user.balance} < -25">
+								<f:then>
+									<span class="badge badge-important"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.balance}</f:format.currency></span>
+								</f:then>
+								<f:else>
+									<f:if condition="{user.balance} == 0">
+										<f:then>
+											<span class="badge badge-success"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.balance}</f:format.currency></span>
+										</f:then>
+										<f:else>
+											<span class="badge badge-warning"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.balance}</f:format.currency></span>
+										</f:else>
+									</f:if>
+								</f:else>
+							</f:if>
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</div>
+		<div class="span5 offset2">
+			
+		</div>
+	</div>
+</f:section>

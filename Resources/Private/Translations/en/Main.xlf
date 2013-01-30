@@ -1,0 +1,507 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" source-language="en" target-language="en" datatype="plaintext">
+		<body>
+			<!-- General -->
+			<trans-unit id="app.name">
+				<source>DrinkAccounting</source>
+			</trans-unit>
+
+			<trans-unit id="view.print">
+				<source>Print</source>
+			</trans-unit>
+
+			<!-- Main Navigation -->
+			<trans-unit id="mainnav.statement.unbilled">
+				<source>Unbilled</source>
+			</trans-unit>
+
+			<trans-unit id="mainnav.statement.listBilled">
+				<source>List billed</source>
+			</trans-unit>
+
+			<trans-unit id="mainnav.actions">
+				<source>Actions</source>
+			</trans-unit>
+
+			<!-- Controls -->
+			<trans-unit id="control.new">
+				<source>New</source>
+			</trans-unit>
+
+			<trans-unit id="control.create">
+				<source>Create</source>
+			</trans-unit>
+
+			<trans-unit id="control.list">
+				<source>List</source>
+			</trans-unit>
+
+			<trans-unit id="control.edit">
+				<source>Edit</source>
+			</trans-unit>
+
+			<trans-unit id="control.delete">
+				<source>Delete</source>
+			</trans-unit>
+
+			<trans-unit id="control.cancel">
+				<source>Cancel</source>
+			</trans-unit>
+
+			<trans-unit id="control.options">
+				<source>Options</source>
+			</trans-unit>
+
+			<trans-unit id="control.update">
+				<source>Update</source>
+			</trans-unit>
+
+			<trans-unit id="control.activate">
+				<source>Activate</source>
+			</trans-unit>
+
+			<trans-unit id="control.deactivate">
+				<source>Deactivate</source>
+			</trans-unit>
+
+			<trans-unit id="control.show">
+				<source>Show</source>
+			</trans-unit>
+
+			<!-- Overview -->
+			<trans-unit id="overview.title">
+				<source>Overview</source>
+			</trans-unit>
+
+			<trans-unit id="overview.statement.latest">
+				<source>Latest statements</source>
+			</trans-unit>
+
+			<trans-unit id="overview.user.top5">
+				<source>Balance (top 5)</source>
+			</trans-unit>
+
+
+			<!-- Account -->
+			<trans-unit id="account.title">
+				<source>Accounts</source>
+			</trans-unit>
+
+			<trans-unit id="account.title.singular">
+				<source>Account</source>
+			</trans-unit>
+
+			<trans-unit id="account.balance">
+				<source>Balance</source>
+			</trans-unit>
+
+			<trans-unit id="account.name">
+				<source>Name</source>
+			</trans-unit>
+
+			<trans-unit id="account.sum">
+				<source>Sum</source>
+			</trans-unit>
+
+			<trans-unit id="account.control.rebook">
+				<source>Rebook</source>
+			</trans-unit>
+
+			<trans-unit id="account.rebook">
+				<source>Rebook</source>
+			</trans-unit>
+
+			<trans-unit id="account.transaction.date">
+				<source>Date</source>
+			</trans-unit>
+
+			<trans-unit id="account.transaction.sum">
+				<source>Sum</source>
+			</trans-unit>
+
+			<trans-unit id="account.transaction.desc">
+				<source>Desc</source>
+			</trans-unit>
+
+			<trans-unit id="account.transaction.newBalance">
+				<source>New balance</source>
+			</trans-unit>
+
+			<trans-unit id="account.noAccounts">
+				<source>No accounts created yet.</source>
+			</trans-unit>
+
+			<trans-unit id="account.newAccount">
+				<source>New Account</source>
+			</trans-unit>
+
+			<!-- User -->
+			<trans-unit id="user.title">
+				<source>Users</source>
+			</trans-unit>
+
+			<trans-unit id="user.title.singular">
+				<source>Users</source>
+			</trans-unit>
+
+			<trans-unit id="user.roomNumber">
+				<source>RoomNr.</source>
+			</trans-unit>
+
+			<trans-unit id="user.nick">
+				<source>Nick</source>
+			</trans-unit>
+
+			<trans-unit id="user.name">
+				<source>Name</source>
+			</trans-unit>
+
+			<trans-unit id="user.surname">
+				<source>Surname</source>
+			</trans-unit>
+
+			<trans-unit id="user.balance">
+				<source>Balance</source>
+			</trans-unit>
+
+			<trans-unit id="user.deposit">
+				<source>Deposit</source>
+			</trans-unit>
+
+			<trans-unit id="user.active">
+				<source>Active</source>
+			</trans-unit>
+
+			<trans-unit id="user.inactive">
+				<source>Inactive</source>
+			</trans-unit>
+
+			<trans-unit id="user.newUser">
+				<source>New User</source>
+			</trans-unit>
+
+			<trans-unit id="user.payment.date">
+				<source>Date</source>
+			</trans-unit>
+
+			<trans-unit id="user.payment.sum">
+				<source>Sum</source>
+			</trans-unit>
+
+			<trans-unit id="user.payment.newBalance">
+				<source>New balance</source>
+			</trans-unit>
+
+			<trans-unit id="user.payment.description">
+				<source>Description</source>
+			</trans-unit>
+
+			<trans-unit id="user.noUsers">
+				<source>No users created yet.</source>
+			</trans-unit>
+
+			<trans-unit id="user.currentDeposit">
+				<source>Current deposit</source>
+			</trans-unit>
+
+			<trans-unit id="user.newDeposit">
+				<source>New deposit</source>
+			</trans-unit>
+
+			<!-- Statement -->
+			<trans-unit id="statement.title">
+				<source>Statements</source>
+			</trans-unit>
+
+			<trans-unit id="statement.title.singular">
+				<source>Statement</source>
+			</trans-unit>
+
+			<trans-unit id="statement.status">
+				<source>Status</source>
+			</trans-unit>
+
+			<trans-unit id="statement.billed">
+				<source>billed</source>
+			</trans-unit>
+
+			<trans-unit id="statement.unbilled">
+				<source>unbilled</source>
+			</trans-unit>
+
+			<trans-unit id="statement.Billed">
+				<source>Billed</source>
+			</trans-unit>
+
+			<trans-unit id="statement.Unbilled">
+				<source>Unbilled</source>
+			</trans-unit>
+
+			<trans-unit id="statement.name">
+				<source>Title</source>
+			</trans-unit>
+
+			<trans-unit id="statement.startDate">
+				<source>From</source>
+			</trans-unit>
+
+			<trans-unit id="statement.endDate">
+				<source>To</source>
+			</trans-unit>
+
+			<trans-unit id="statement.progress">
+				<source>Progress</source>
+			</trans-unit>
+
+			<trans-unit id="statement.newStatement">
+				<source>New statement</source>
+			</trans-unit>
+
+			<trans-unit id="statement.step">
+				<source>Step</source>
+			</trans-unit>
+
+			<trans-unit id="statement.stepOf">
+				<source>of</source>
+			</trans-unit>
+
+			<trans-unit id="statement.config">
+				<source>Configure</source>
+			</trans-unit>
+
+			<trans-unit id="statement.configDescription">
+				<source>Defines which users and products are part of the statement.<br />
+			Use button below for printing a list to keep track of consumption.</source>
+			</trans-unit>
+
+			<trans-unit id="statement.initialStockDescription">
+				<source>With no users selected, this statement becomes an initial stock statement to help you switch from your old system. <br />Keep in mind not to select an initial stock under stocks in this wizard. <br />Initial stock statements are marked with an <span class="badge badge-warning">IS</span> badge.</source>
+			</trans-unit>
+
+			<trans-unit id="statement.initialStock">
+				<source>Initial stock statement</source>
+			</trans-unit>
+
+			<trans-unit id="statement.initialStockBadge">
+				<source>IS</source>
+			</trans-unit>
+
+			<trans-unit id="statement.isBilled">
+				<source>Statement is billed.</source>
+			</trans-unit>
+
+			<trans-unit id="statement.returnToStatementlist">
+				<source>Return to Statementlist</source>
+			</trans-unit>
+
+			<trans-unit id="statement.returnToConfig">
+				<source>Return to Config</source>
+			</trans-unit>
+
+			<trans-unit id="statement.returnToStocks">
+				<source>Return to Stocks</source>
+			</trans-unit>
+
+			<trans-unit id="statement.returnToPurchases">
+				<source>Return to Purchases</source>
+			</trans-unit>
+
+			<trans-unit id="statement.returnToConsumption">
+				<source>Return to Consumption</source>
+			</trans-unit>
+
+			<trans-unit id="statement.continueToStocks">
+				<source>Continue to Stocks</source>
+			</trans-unit>
+
+			<trans-unit id="statement.continueToPurchases">
+				<source>Continue to Purchases</source>
+			</trans-unit>
+
+			<trans-unit id="statement.continueToConsumption">
+				<source>Continue to Consumption</source>
+			</trans-unit>
+
+			<trans-unit id="statement.continueToFinal">
+				<source>Show final Statement</source>
+			</trans-unit>
+
+			<trans-unit id="statement.printList">
+				<source>Print list</source>
+			</trans-unit>
+
+			<trans-unit id="statement.stocks">
+				<source>Stocks</source>
+			</trans-unit>
+
+			<trans-unit id="statement.purchases">
+				<source>Purchases</source>
+			</trans-unit>
+
+			<trans-unit id="statement.purchasesDescription">
+				<source>Select purchases made within statement time range and/or add purchases.</source>
+			</trans-unit>
+
+			<trans-unit id="statement.consumption">
+				<source>Consumption</source>
+			</trans-unit>
+
+			<trans-unit id="statement.final">
+				<source>Final</source>
+			</trans-unit>
+
+			<trans-unit id="statement.initialStockSelect">
+				<source>Select statement with initial stock</source>
+			</trans-unit>
+
+			<trans-unit id="statement.stocksDescription">
+				<source>Select statement with initial stock and enter stock of current statement.</source>
+			</trans-unit>
+
+			<trans-unit id="statement.initialStockBottles">
+				<source>Initial Stock</source>
+			</trans-unit>
+
+			<trans-unit id="statement.currentStock">
+				<source>Current stock</source>
+			</trans-unit>
+
+			<trans-unit id="statement.purchasedBottles">
+				<source>Purchased bottles</source>
+			</trans-unit>
+
+			<trans-unit id="statement.consumptionInclLoss">
+				<source>Consumption (incl. loss)</source>
+			</trans-unit>
+
+			<trans-unit id="statement.soldBottles">
+				<source>Sold bottles</source>
+			</trans-unit>
+
+			<trans-unit id="statement.lostBottles">
+				<source>Loss</source>
+			</trans-unit>
+
+			<trans-unit id="statement.totalLoss">
+				<source>Total loss:</source>
+			</trans-unit>
+
+			<trans-unit id="statement.completeStatement">
+				<source>Complete Statement</source>
+			</trans-unit>
+
+			<trans-unit id="statement.currentStatement">
+				<source>Current</source>
+			</trans-unit>
+
+			<trans-unit id="statement.oldBalance">
+				<source>Old balance</source>
+			</trans-unit>
+
+			<trans-unit id="statement.lossFee">
+				<source>Lossfee</source>
+			</trans-unit>
+
+			<trans-unit id="statement.newBalance">
+				<source>New balance</source>
+			</trans-unit>
+
+			<trans-unit id="statement.noStatements">
+				<source>No statements yet.</source>
+			</trans-unit>
+
+			<!-- Purchase -->
+			<trans-unit id="purchase.title">
+				<source>Purchases</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.title.singular">
+				<source>Purchase</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.invoiceNumber">
+				<source>InvoiceNr.</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.date">
+				<source>Date</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.sum">
+				<source>Sum</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.noPurchases">
+				<source>No purchases created yet.</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.newPurchase">
+				<source>New Purchase</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.position.crateAmount">
+				<source>Crates</source>
+			</trans-unit>
+
+			<trans-unit id="purchase.position.bottleAmount">
+				<source>Bottles</source>
+			</trans-unit>
+
+			<!-- Product -->
+			<trans-unit id="product.title">
+				<source>Products</source>
+			</trans-unit>
+
+			<trans-unit id="product.title.singular">
+				<source>Product</source>
+			</trans-unit>
+
+			<trans-unit id="product.name">
+				<source>Name</source>
+			</trans-unit>
+
+			<trans-unit id="product.price">
+				<source>Price</source>
+			</trans-unit>
+
+			<trans-unit id="product.averagePrice">
+				<source>Average price</source>
+			</trans-unit>
+
+			<trans-unit id="product.crateSize">
+				<source>Crate size</source>
+			</trans-unit>
+
+			<trans-unit id="product.purchasePrice">
+				<source>Purchase price</source>
+			</trans-unit>
+
+			<trans-unit id="product.deposit">
+				<source>Deposit</source>
+			</trans-unit>
+
+			<trans-unit id="product.active">
+				<source>Active</source>
+			</trans-unit>
+
+			<trans-unit id="product.position">
+				<source>Position</source>
+			</trans-unit>
+
+			<trans-unit id="product.noProducts">
+				<source>No products created yet.</source>
+			</trans-unit>
+
+			<trans-unit id="product.newProduct">
+				<source>New Product</source>
+			</trans-unit>
+
+			<!-- New -->
+			<trans-unit id="product.inactive">
+				<source>Inactive</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,123 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="statement.stocks">Stocks (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+	{statement.title}<f:if condition="{statement.IsInitialStockStatement}"><f:then><span class="badge badge-warning"><f:translate locale="{langDetector.language}" id="statement.initialStockBadge">IS (nt)</f:translate></span></f:then></f:if>
+</f:section>
+<f:section name="HeaderRight">
+	<f:if condition="{statement.billed}">
+		<f:then>
+			<f:if condition="{statement.IsInitialStockStatement}">
+				<f:then>
+					<span class="label label-warning"><f:translate locale="{langDetector.language}" id="statement.initialStock">Initial stock statement (nt)</f:translate></span>
+				</f:then>
+				<f:else>
+					<span class="label label-success"><f:translate locale="{langDetector.language}" id="statement.isBilled">Statement is billed. (nt)</f:translate></span>
+				</f:else>
+			</f:if>
+		</f:then>
+		<f:else>
+			<div class="progress">
+				<div class="bar"
+					style="width: {progress}%;"></div>
+			</div>
+			<span class="progressBarDesc"><f:translate locale="{langDetector.language}" id="statement.step">Step (nt)</f:translate> 4 <f:translate locale="{langDetector.language}" id="statement.stepOf">of (nt)</f:translate> {steps}</span>
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="Content">
+	<f:form action="updateStocks" name="statement" object="{statement}" arguments="{stocks: stocks}">
+		<div class="row">
+			<div class="span5">
+				<h3><f:translate locale="{langDetector.language}" id="statement.initialStockSelect">Select statement with initial stock (nt)</f:translate></h3>
+				<f:form.select property="initialStockStatement" id="initialStockStatement" options="{statements}" optionLabelField="title" prependOption=" - none - "/>
+			</div>
+			<div class="span5 offset1"><p>
+				<f:translate locale="{langDetector.language}" id="statement.stocksDescription">Select statement with initial stock and enter stock of current statement. (nt)</f:translate>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="span8">
+				<table class="table table-striped slimInput noHover">
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="product.title.singular">Product (nt)</f:translate></th>
+						<th><f:translate locale="{langDetector.language}" id="statement.initialStockBottles">Initial Stock (nt)</f:translate></th>
+						<th><f:translate locale="{langDetector.language}" id="statement.currentStock">Current Stock (nt)</f:translate></th>
+						<th><f:translate locale="{langDetector.language}" id="statement.purchasedBottles">Purchased Bottles (nt)</f:translate></th>
+						<th><f:translate locale="{langDetector.language}" id="statement.consumptionInclLoss">Consumption (incl. loss) (nt) </f:translate></th>
+					</tr>
+					<f:for each="{statement.products}" as="product">
+						<tr>
+							<td>{product.name}</td>
+							<td>
+								{product.initialBottleAmount}
+							</td>
+							<td>
+								<f:form.textfield class="input-small" name="stocks[{product.uuid}]" value="{product.bottleAmount}"/>
+							</td>
+							<td>{product.purchasedBottles}</td>
+							<td>{product.consumption}</td>
+						</tr>
+					</f:for>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span4">
+				<f:if condition="{statement.IsInitialStockStatement}">
+					<f:then>
+						<f:link.action
+							class="btn"
+							action="config"
+							arguments="{statement: statement}"><i class="icon-arrow-left"></i> <f:translate locale="{langDetector.language}" id="statement.returnToConfig">Return to Config (nt)</f:translate></f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action
+							class="btn"
+							action="purchases"
+							arguments="{statement: statement}"><i class="icon-arrow-left"></i> <f:translate locale="{langDetector.language}" id="statement.returnToPurchases">Return to Purchases (nt)</f:translate></f:link.action>
+					</f:else>
+				</f:if>
+			</div>
+			<div class="span4 alignCenter">
+				<f:if condition="{statement.billed}">
+					<f:then>
+						<f:if condition="{statement.IsInitialStockStatement}">
+							<f:then>
+								<span class="label label-warning"><f:translate locale="{langDetector.language}" id="statement.initialStock">Initial stock statement (nt)</f:translate></span>
+							</f:then>
+							<f:else>
+								<span class="label label-success"><f:translate locale="{langDetector.language}" id="statement.isBilled">Statement is billed. (nt)</f:translate></span>
+							</f:else>
+						</f:if>
+					</f:then>
+					<f:else>
+						<f:form.button class="btn btn-primary" type="submit"><i class="icon-refresh icon-white"></i> <f:translate locale="{langDetector.language}" id="control.update">Update (nt)</f:translate></f:form.button>
+					</f:else>
+				</f:if>
+			</div>
+			<div class="span4 alignRight">
+				<f:if condition="{statement.IsInitialStockStatement}">
+					<f:then>
+						<f:link.action
+							class="btn"
+							action="final"
+							arguments="{statement: statement}"><f:translate locale="{langDetector.language}" id="statement.continueToFinal">Show final Statement (nt)</f:translate> <i class="icon-arrow-right"></i></f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action
+							class="btn"
+							action="consumption"
+							arguments="{statement: statement}"><f:translate locale="{langDetector.language}" id="statement.continueToConsumption">Continue to Consumption (nt)</f:translate> <i class="icon-arrow-right"></i></f:link.action>
+					</f:else>
+				</f:if>
+			</div>
+		</div>
+	</f:form>
+</f:section>

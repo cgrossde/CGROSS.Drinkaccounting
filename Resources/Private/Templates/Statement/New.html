@@ -1,0 +1,47 @@
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="statement.newStatement">New Statement (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+	<div class="progress">
+		<div class="bar"
+			style="width: {progress}%;"></div>
+	</div>
+	<span class="progressBarDesc"><f:translate locale="{langDetector.language}" id="statement.step">Step (nt)</f:translate> 1 <f:translate locale="{langDetector.language}" id="statement.stepOf">of (nt)</f:translate> {steps}</span>
+</f:section>
+
+<f:section name="Content">
+	<f:form action="create" name="newStatement">
+		<div class="row">
+			<div class="span5">
+				<table class="table table-striped slimInput noHover">
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="statement.name">Title (nt)</f:translate></th>
+						<td><f:form.textfield class="span3" property="title" id="title" /></td>
+					</tr>
+				
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="statement.startDate">From (nt)</f:translate></th>
+						<td><f:form.textfield class="span2" type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d')}" property="dateStart" id="dateStart" /></td>
+					</tr>
+				
+					<tr>
+						<th><f:translate locale="{langDetector.language}" id="statement.endDate">To (nt)</f:translate></th>
+						<td><f:form.textfield class="span2" type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d')}" property="dateStop" id="dateStop" /></td>
+					</tr>
+				
+					<tr>
+						<td class="alignRight"><f:form.button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate></f:form.button></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div class="span5 offset5"></div>
+		</div>
+		
+	</f:form>
+</f:section>

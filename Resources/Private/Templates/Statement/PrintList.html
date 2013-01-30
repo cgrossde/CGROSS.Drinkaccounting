@@ -1,0 +1,41 @@
+<f:layout name="Print" />
+
+<f:section name="Content">
+	<f:form.validationResults for="Statement">
+		<f:if condition="{validationResults.flattenedErrors}">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<div class="validationerror">
+					<b>{propertyPath}:</b>
+					<f:for each="{errors}" as="error">
+						{error}
+					</f:for>
+				</div>
+			</f:for>
+		</f:if>
+	</f:form.validationResults>
+	
+	<table class="table table-bordered">
+		<tr>
+			<th>User</th>
+			<f:for each="{statement.products}" as="product" iteration="productIterator">
+					<th>{product.name}</th>
+			</f:for>
+		</tr>
+	
+		<f:for each="{statement.users}" as="user" iteration="userIterator">
+			<tr class="<f:if condition="{userIterator.isEven}" then="even" /><f:if condition="{userIterator.isOdd}" then="odd" />">
+				<td>{user.displayName}</td>
+				<f:for each="{statement.products}" as="product" iteration="productIterator">
+						<td>&nbsp;</td>
+				</f:for>
+			</tr>
+		</f:for>
+	</table>
+	<br />
+	<f:link.action 
+		action="config" 
+		controller="Statement" 
+		arguments="{statement: statement}">
+	Back to config
+	</f:link.action>
+</f:section>

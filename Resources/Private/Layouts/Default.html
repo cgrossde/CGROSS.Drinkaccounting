@@ -1,0 +1,48 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title><f:render section="HeaderPrefix" /> <f:render section="Title" /></title>
+		<f:base />
+
+		 <!-- Le CSS
+		================================================== -->
+		<link rel="stylesheet" href="{f:uri.resource(path: 'css/bootstrap.css')}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'css/bootstrap-notify.css')}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'css/base.css')}" type="text/css" media="all" />
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top noPrint" id="navigation">
+			<div class="navbar-inner">
+				<div class="container">
+					<f:link.action action="index" controller="Overview" class="brand"><f:translate locale="{langDetector.language}" id="app.name">DrinkAccounting (nt)</f:translate></f:link.action>
+					 <da:widget.mainnavigation />
+				</div>
+			</div>
+		</div>
+		<div class="container" id="content">
+			<div class="row header">
+				<div class="span8 ">
+					<span class="headerPrefix h1 noPrint"><f:render section="HeaderPrefix" /></span>&nbsp;
+					<h1 class="inline"><f:render section="Title" /></h1>
+				</div>
+				<div class="span4 alignRight h1 posRelative">
+					<f:render section="HeaderRight" />
+				</div>
+			</div>
+			<br />
+			<f:render section="Content" />
+			<f:flashMessages class="flashmessages" />
+		</div>
+
+
+		 <!-- Le javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="{f:uri.resource(path: 'js/jquery-1.7.2.js')}"></script>
+		<script src="{f:uri.resource(path: 'js/bootstrap.js')}"></script>
+		<script src="{f:uri.resource(path: 'js/bootstrap-notify.js')}"></script>
+		<script src="{f:uri.resource(path: 'js/script.js')}"></script>
+	</body>
+</html>

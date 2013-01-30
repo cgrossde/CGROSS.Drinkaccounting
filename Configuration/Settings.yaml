@@ -1,0 +1,16 @@
+#
+# Settings for Drinkaccounting
+#
+CGROSS:
+  Drinkaccounting:
+    system:
+      dateFormat: 'Y-m-d'
+    statementWizard:
+      steps: 7
+
+
+# Language of the interface
+TYPO3:
+  FLOW3:
+    i18n:
+      defaultLocale: en

@@ -1,0 +1,116 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:link.action action="index"><f:translate locale="{langDetector.language}" id="account.title.singular">Account (nt)</f:translate></f:link.action>
+</f:section>
+<f:section name="Title">
+	<da:ajax
+		object="{account}"
+		property="name"
+		class="inline ajaxHeader"
+		action="drinkaccounting/account/ajaxUpdate"/>
+</f:section>
+<f:section name="HeaderRight">
+	<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{account.balance}</f:format.currency>
+</f:section>
+
+<f:section name="Content">
+	<f:form.validationResults for="newTransaction">
+		<f:if condition="{validationResults.flattenedErrors}">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<div class="validationerror">
+					<b>{propertyPath}:</b>
+					<f:for each="{errors}" as="error">
+						{error}
+					</f:for>
+				</div>
+			</f:for>
+		</f:if>
+	</f:form.validationResults>
+
+	<table class="table table-striped slimInput">
+		<tr>
+			<th><f:translate locale="{langDetector.language}" id="account.transaction.date">Date (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="account.transaction.sum">Sum (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="account.transaction.newBalance">New balance (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="account.transaction.desc">Desc (nt)</f:translate></th>
+			<th><f:translate locale="{langDetector.language}" id="control.options">Options (nt)</f:translate></th>
+		</tr>
+		<f:for each="{account.transactions}" as="transaction" iteration="transactionIterator">
+			<tr>
+				<td><da:ajax
+						object="{transaction}"
+						property="date"
+						arguments="{account: account}"
+						action="drinkaccounting/transaction/edit"/>
+				</td>
+				<td>
+					<f:if condition="{transaction.sum} > 0">
+						<f:then>
+							<span class="badge badge-success"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{transaction.sum}</f:format.currency></span>
+						</f:then>
+						<f:else>
+							<span class="badge badge-important"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{transaction.sum}</f:format.currency></span>
+						</f:else>
+					</f:if>
+
+				</td>
+				<td>
+					<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{transaction.balanceNew}</f:format.currency>
+				</td>
+				<td>
+					<da:ajax object="{transaction}" property="desc" arguments="{account: account}" action="drinkaccounting/transaction/edit"/>
+				</td>
+				<f:if condition="{transaction.deletable}">
+					<f:then>
+						<td>
+							<f:link.action
+								class="btn-small btn-danger"
+								action="cancel"
+								controller="Transaction"
+								arguments="{account: transaction.account, transaction: transaction}"><i class="icon-remove icon-white"></i>&nbsp;<f:translate locale="{langDetector.language}" id="control.cancel">Cancel (nt)</f:translate>
+							</f:link.action>
+						</td>
+					</f:then>
+					<f:else>
+						<td>
+
+						</td>
+					</f:else>
+				</f:if>
+			</tr>
+		</f:for>
+		<f:form controller="Transaction" arguments="{account: account}" action="create" name="newTransaction" object="{newTransaction}">
+			<tr class="noPrint">
+				<td><f:form.textfield class="span2" type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d')}" property="date" id="date" /></td>
+				<td><f:form.textfield class="span2" property="sum" id="sum" /></td>
+				<td>&nbsp;</td>
+				<td><f:form.textfield property="desc" id="desc" /></td>
+				<td><f:form.button class="btn btn-primary" type="submit" /><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate></td>
+			</tr>
+		</f:form>
+	</table>
+	<br />
+	<div class="row noPrint">
+		<div class="span5">
+			<h3><f:translate locale="{langDetector.language}" id="account.rebook">Rebook (nt)</f:translate></h3>
+			<f:form controller="Account" arguments="{newAccount: newAccount, sum: sum}" action="rebook" name="account" object="{account}">
+			<table class="table table-striped noHover slimInput">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="account.title.singular">Account (nt)</f:translate></th>
+					<td><f:form.select class="span2" name="newAccount" options="{accounts}" optionLabelField="name" /></td>
+				</tr>
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="account.sum">Sum (nt)</f:translate></th>
+					<td><f:form.textfield class="span2" name="sum" /></td>
+				</tr>
+				<tr>
+					<td><f:form.button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="account.control.rebook">Rebook (nt)</f:translate></f:form.button></td>
+					<td></td>
+				</tr>
+			</table>
+			</f:form>
+		</div>
+	</div>
+</f:section>

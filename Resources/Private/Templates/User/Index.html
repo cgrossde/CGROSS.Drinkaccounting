@@ -1,0 +1,92 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="user.active">Active (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="user.title">Users (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+	<div class="btn-group btn-group-right">
+		<f:link.action class="btn btn-primary" action="new"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action>
+		<f:link.action
+			class="btn btn-warning"
+			action="inactive"
+			controller="User"><i class="icon-list icon-white"></i>&nbsp;<f:translate locale="{langDetector.language}" id="user.inactive">Inactive (nt)</f:translate> <f:translate locale="{langDetector.language}" id="user.title">Users (nt)</f:translate>
+		</f:link.action>
+	</div>
+
+</f:section>
+
+<f:section name="Content">
+	<f:if condition="{users}">
+		<f:then>
+			<table class="table table-striped slimInput">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="control.show">Show (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="user.roomNumber">RoomNr. (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="user.nick">Nick (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="user.name">Name (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="user.surname">Surname (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="user.balance">Balance (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="user.deposit">Deposit (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="control.options">Options (nt)</f:translate></th>
+				</tr>
+				<f:for each="{users}" as="user">
+					<tr>
+						<td><f:link.action action="show" arguments="{user: user}">
+								<f:translate locale="{langDetector.language}" id="control.show">Show (nt)</f:translate>
+							</f:link.action></td>
+						<td><da:ajax object="{user}" property="roomNumber" action="drinkaccounting/user/ajaxUpdate"/></td>
+						<td><da:ajax object="{user}" property="nickName" action="drinkaccounting/user/ajaxUpdate"/></td>
+						<td><da:ajax object="{user}" property="name" action="drinkaccounting/user/ajaxUpdate"/></td>
+						<td><da:ajax object="{user}" property="surname" action="drinkaccounting/user/ajaxUpdate"/></td>
+						<td>
+							<f:if condition="{user.balance} < -25">
+								<f:then>
+									<span class="badge badge-important"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.balance}</f:format.currency></span>
+								</f:then>
+								<f:else>
+									<f:if condition="{user.balance} == 0">
+										<f:then>
+											<span class="badge badge-success"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.balance}</f:format.currency></span>
+										</f:then>
+										<f:else>
+											<span class="badge badge-warning"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.balance}</f:format.currency></span>
+										</f:else>
+									</f:if>
+								</f:else>
+							</f:if>
+						</td>
+						<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.deposit}</f:format.currency></td>
+						<td>
+							<f:link.action
+								class="btn-small btn-warning"
+								action="deactivate"
+								controller="User"
+								arguments="{user: user}"><i class="icon-off icon-white"></i> <f:translate locale="{langDetector.language}" id="control.deactivate">Deactivate (nt)</f:translate></f:link.action>
+						</td>
+					</tr>
+				</f:for>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<span class="badge badge-important">
+							<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{balanceSum}</f:format.currency>
+						</span>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</f:then>
+		<f:else>
+			<p><f:translate locale="{langDetector.language}" id="user.noUsers">No users created yet. (nt)</f:translate></p>
+		</f:else>
+	</f:if>
+</f:section>

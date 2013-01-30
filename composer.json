@@ -1,0 +1,22 @@
+{
+    "name": "cgross/drinkaccounting",
+    "type": "typo3-flow-package",
+    "description": "Manage and account the drink service in RSH/ABH",
+    "license": ["LGPL-3.0+"],
+    "authors": [
+        {
+            "name": "Christoph Groß",
+            "homepage": "http://blubyte.de"
+        }
+    ],
+
+    "require": {
+        "php" : ">=5.3.2",
+        "typo3/flow": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "CGROSS\\Drinkaccounting": "Classes"
+        }
+    }
+}

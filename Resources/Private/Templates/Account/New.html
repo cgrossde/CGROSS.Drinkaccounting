@@ -1,0 +1,49 @@
+<f:layout name="Default" />
+
+<f:section name="HeaderPrefix">
+	<f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate>
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="account.newAccount">New Account (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+
+</f:section>
+
+<f:section name="Content">
+	<f:form.validationResults for="newAccount">
+		<f:if condition="{validationResults.flattenedErrors}">
+			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+				<div class="validationerror">
+					<b>{propertyPath}:</b>
+					<f:for each="{errors}" as="error">
+						{error}
+					</f:for>
+				</div>
+			</f:for>
+		</f:if>
+	</f:form.validationResults>
+
+	<f:form action="create" name="newAccount">
+		<div class="row">
+			<div class="span4">
+				<table class="table table-striped noHover slimInput">
+					<tr>
+						<td><f:translate locale="{langDetector.language}" id="account.name">Name (nt)</f:translate></td>
+						<td><f:form.textfield class="span2" property="name" id="name" /></td>
+					</tr>
+				
+					<tr>
+						<td><f:translate locale="{langDetector.language}" id="account.balance">Balance (nt)</f:translate></td>
+						<td><f:form.textfield class="span1" property="balance" id="balance" /></td>
+					</tr>
+				
+					<tr>
+						<td><f:form.button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.create">Create (nt)</f:translate></f:form.button></td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</f:form>
+</f:section>
