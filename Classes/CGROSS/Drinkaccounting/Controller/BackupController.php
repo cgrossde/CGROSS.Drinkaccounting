@@ -220,7 +220,7 @@ class BackupController extends DefaultController {
 
 		//save file
 		$fileName = $this->settings['system']['backupPath'].'db-backup-'.time().'.sql';
-		exec($this->settings['system']['mysqldumpPath'].'mysqldump -u'.$user.' -p'.$pass.' -h'.$host.' -r'.$fileName.' '.$name);
+		exec($this->settings['system']['mysqldumpPath'].'mysqldump -u'.$user.' -p"'.$pass.'" -h'.$host.' -r'.$fileName.' '.$name);
 
 
 		return $fileName;
@@ -288,7 +288,7 @@ class BackupController extends DefaultController {
 		$pass		= $this->globalSettings['persistence']['backendOptions']['password'];
 		$host		= $this->globalSettings['persistence']['backendOptions']['host'];
 
-		exec($this->settings['system']['mysqlPath'].'mysql -u'.$user.' -p'.$pass.' -h'.$host.' '.$name.' < '.$file);
+		exec($this->settings['system']['mysqlPath'].'mysql -u'.$user.' -p"'.$pass.'" -h'.$host.' '.$name.' < '.$file);
 	}
 
 }
