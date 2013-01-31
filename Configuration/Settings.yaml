@@ -5,6 +5,9 @@ CGROSS:
   Drinkaccounting:
     system:
       dateFormat: 'Y-m-d'
+      backupPath: '/tmp/'
+      mysqldumpPath: ''
+      mysqlPath: ''
     statementWizard:
       steps: 7
 

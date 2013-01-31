@@ -5,7 +5,7 @@
 	.noPrint {
 		display: none;
 	}
-	
+
 	body {
 		color: #000000;
 	}
@@ -23,7 +23,7 @@
 		margin-right: 50%;
 	}
 
-.alignLeft 
+.alignLeft
 .table td.alignLeft,
 .table th.alignLeft {
 	text-align: left;
@@ -101,18 +101,18 @@ body {
 }
 
 #navigation {
-		
+
 }
 
 #content {
 		background-color: #FFFFFF;
 }
 
-.btn-primary:hover, 
+.btn-primary:hover,
 .btn-warning:hover,
 .btn-danger:hover,
-.btn-success:hover, 
-.btn-info:hover, 
+.btn-success:hover,
+.btn-info:hover,
 .btn-inverse:hover {
 	text-decoration: none;
 }
@@ -121,7 +121,7 @@ body {
 	margin-top: 0;
 }
 
-table.slimInput input[type="text"], 
+table.slimInput input[type="text"],
 table.slimInput input[type="datetime"],
 table.slimInput select {
 	margin-bottom: 0;
@@ -147,7 +147,11 @@ table.consumption td input {
 	height: 12px;
 }
 
-.newHover tbody tr:hover td, 
+.newHover tbody tr:hover td,
 .newHover tbody tr:hover th {
 	background-color: #E0F2FF;
+}
+
+.navbar .nav > li.backup-link {
+	margin-left: 50px;
 }
