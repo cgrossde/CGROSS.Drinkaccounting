@@ -1,0 +1,60 @@
+{namespace da=CGROSS\Drinkaccounting\ViewHelpers}
+<f:layout name="Default" />
+
+
+<f:section name="HeaderPrefix">
+
+</f:section>
+<f:section name="Title">
+	<f:translate locale="{langDetector.language}" id="backup.title">Backups (nt)</f:translate>
+</f:section>
+<f:section name="HeaderRight">
+	<f:link.action class="btn btn-primary" action="new"><i class="icon-plus icon-white"></i> <f:translate locale="{langDetector.language}" id="control.new">New (nt)</f:translate></f:link.action>
+</f:section>
+
+<f:section name="Content">
+	<f:if condition="{backups}">
+		<f:then>
+			<table class="table table-striped slimInput">
+				<tr>
+					<th><f:translate locale="{langDetector.language}" id="backup.date">Date (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="backup.desc">Desc (nt)</f:translate></th>
+					<th><f:translate locale="{langDetector.language}" id="control.options">Options (nt)</f:translate></th>
+				</tr>
+				<f:for each="{backups}" as="backup">
+					<tr>
+						<td>{f:format.date(date: backup.date, format: 'Y-m-d')}</td>
+						<td>{backup.desc}</td>
+						<td>
+							<f:if condition="{backup.file}"><f:then>
+								<f:link.action
+										class="btn-small btn-primary"
+										action="download"
+										controller="Backup"
+										arguments="{backup: backup}"><i class="icon-download icon-white"></i>&nbsp;<f:translate locale="{langDetector.language}" id="control.download">Download (nt)</f:translate>
+								</f:link.action>
+							</f:then></f:if>
+
+							<f:link.action
+								class="btn-small btn-warning"
+								action="restore"
+								controller="Backup"
+								arguments="{backup: backup}"><i class="icon-repeat icon-white"></i>&nbsp;<f:translate locale="{langDetector.language}" id="backup.restore">Restore (nt)</f:translate>
+							</f:link.action>
+
+							<f:link.action
+									class="btn-small btn-danger"
+									action="delete"
+									controller="Backup"
+									arguments="{backup: backup}"><i class="icon-remove icon-white"></i>&nbsp;<f:translate locale="{langDetector.language}" id="control.delete">Delete (nt)</f:translate>
+							</f:link.action>
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p><f:translate locale="{langDetector.language}" id="backup.noBackups">No backups created yet. (nt)</f:translate></p>
+		</f:else>
+	</f:if>
+</f:section>
