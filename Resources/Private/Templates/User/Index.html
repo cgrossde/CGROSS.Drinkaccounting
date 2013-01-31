@@ -38,10 +38,10 @@
 						<td><f:link.action action="show" arguments="{user: user}">
 								<f:translate locale="{langDetector.language}" id="control.show">Show (nt)</f:translate>
 							</f:link.action></td>
-						<td><da:ajax object="{user}" property="roomNumber" action="drinkaccounting/user/ajaxUpdate"/></td>
-						<td><da:ajax object="{user}" property="nickName" action="drinkaccounting/user/ajaxUpdate"/></td>
-						<td><da:ajax object="{user}" property="name" action="drinkaccounting/user/ajaxUpdate"/></td>
-						<td><da:ajax object="{user}" property="surname" action="drinkaccounting/user/ajaxUpdate"/></td>
+						<td><da:ajax object="{user}" property="roomNumber" action="cgross.drinkaccounting/user/ajaxUpdate"/></td>
+						<td><da:ajax object="{user}" property="nickName" action="cgross.drinkaccounting/user/ajaxUpdate"/></td>
+						<td><da:ajax object="{user}" property="name" action="cgross.drinkaccounting/user/ajaxUpdate"/></td>
+						<td><da:ajax object="{user}" property="surname" action="cgross.drinkaccounting/user/ajaxUpdate"/></td>
 						<td>
 							<f:if condition="{user.balance} < -25">
 								<f:then>

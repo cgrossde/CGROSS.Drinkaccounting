@@ -43,7 +43,7 @@
 						<td>
 							<f:if condition="{edit}">
 								<f:then>
-									<da:ajax class="span1" object="{purchasePosition}" property="crateAmount" arguments="{purchase: purchase}" action="drinkaccounting/purchasePosition/ajaxEdit"/>
+									<da:ajax class="span1" object="{purchasePosition}" property="crateAmount" arguments="{purchase: purchase}" action="cgross.drinkaccounting/purchasePosition/ajaxEdit"/>
 								</f:then>
 								<f:else>
 									{purchasePosition.crateAmount}
@@ -99,7 +99,7 @@
 								<da:ajax
 										object="{purchase}"
 										property="date"
-										action="drinkaccounting/purchase/ajaxUpdate"/>
+										action="cgross.drinkaccounting/purchase/ajaxUpdate"/>
 							</f:then>
 							<f:else>
 								{f:format.date(date: purchase.date, format: 'Y-m-d')}
@@ -117,7 +117,7 @@
 								<da:ajax
 									object="{purchase}"
 									property="invoiceNumber"
-									action="drinkaccounting/purchase/ajaxUpdate"/>
+									action="cgross.drinkaccounting/purchase/ajaxUpdate"/>
 							</f:then>
 							<f:else>
 								{purchase.invoiceNumber}

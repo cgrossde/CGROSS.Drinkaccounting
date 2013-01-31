@@ -44,7 +44,7 @@
 					<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{payment.balanceNew}</f:format.currency>
 				</td>
 				<td>
-					<da:ajax object="{payment}" property="desc" arguments="{user: user}" action="drinkaccounting/payment/ajaxEdit"/>
+					<da:ajax object="{payment}" property="desc" arguments="{user: user}" action="cgross.drinkaccounting/payment/ajaxEdit"/>
 				</td>
 				<td>{payment.transaction.account.name}</td>
 				<f:if condition="{payment.deletable}">

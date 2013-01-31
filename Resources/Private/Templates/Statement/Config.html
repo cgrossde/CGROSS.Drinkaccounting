@@ -14,7 +14,7 @@
 				object="{statement}"
 				property="title"
 				class="inline ajaxHeader"
-				action="drinkaccounting/statement/ajaxUpdate"/><f:if condition="{statement.IsInitialStockStatement}"><f:then><span class="badge badge-warning"><f:translate locale="{langDetector.language}" id="statement.initialStockBadge">IS (nt)</f:translate></span></f:then></f:if>
+				action="cgross.drinkaccounting/statement/ajaxUpdate"/><f:if condition="{statement.IsInitialStockStatement}"><f:then><span class="badge badge-warning"><f:translate locale="{langDetector.language}" id="statement.initialStockBadge">IS (nt)</f:translate></span></f:then></f:if>
 		</f:else>
 	</f:if>
 </f:section>
@@ -55,7 +55,7 @@
 								<da:ajax
 									object="{statement}"
 									property="dateStart"
-									action="drinkaccounting/statement/ajaxUpdate"/>
+									action="cgross.drinkaccounting/statement/ajaxUpdate"/>
 							</f:else>
 						</f:if>
 					</td>
@@ -72,7 +72,7 @@
 								<da:ajax
 									object="{statement}"
 									property="dateStop"
-									action="drinkaccounting/statement/ajaxUpdate"/>
+									action="cgross.drinkaccounting/statement/ajaxUpdate"/>
 							</f:else>
 						</f:if>
 					</td>

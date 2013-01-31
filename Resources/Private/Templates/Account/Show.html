@@ -9,7 +9,7 @@
 		object="{account}"
 		property="name"
 		class="inline ajaxHeader"
-		action="drinkaccounting/account/ajaxUpdate"/>
+		action="cgross.drinkaccounting/account/ajaxUpdate"/>
 </f:section>
 <f:section name="HeaderRight">
 	<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{account.balance}</f:format.currency>
@@ -43,7 +43,7 @@
 						object="{transaction}"
 						property="date"
 						arguments="{account: account}"
-						action="drinkaccounting/transaction/edit"/>
+						action="cgross.drinkaccounting/transaction/edit"/>
 				</td>
 				<td>
 					<f:if condition="{transaction.sum} > 0">
@@ -60,7 +60,7 @@
 					<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{transaction.balanceNew}</f:format.currency>
 				</td>
 				<td>
-					<da:ajax object="{transaction}" property="desc" arguments="{account: account}" action="drinkaccounting/transaction/edit"/>
+					<da:ajax object="{transaction}" property="desc" arguments="{account: account}" action="cgross.drinkaccounting/transaction/edit"/>
 				</td>
 				<f:if condition="{transaction.deletable}">
 					<f:then>
