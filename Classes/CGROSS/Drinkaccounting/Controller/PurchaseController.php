@@ -60,6 +60,16 @@ class PurchaseController extends DefaultController {
 			);
 	}
 
+	public function initializeAjaxUpdateAction() {
+		$this->arguments['purchase']
+	        ->getPropertyMappingConfiguration()
+	        ->forProperty('date')
+	        ->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
+	        	\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT,
+	        	'Y-m-d'
+			);
+	}
+
 	/**
 	 * Shows a list of purchases
 	 *

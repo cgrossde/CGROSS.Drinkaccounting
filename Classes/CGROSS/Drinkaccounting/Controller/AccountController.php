@@ -39,7 +39,7 @@ class AccountController extends DefaultController {
 	 * @return void
 	 */
 	public function showAction(Account $account) {
-		$account->setTransactions($account->getLastTransactions(10));
+		$account->setTransactions($account->getLastTransactions(30));
 		// Get accounts except current account
 		$accounts = new \Doctrine\Common\Collections\ArrayCollection($this->accountRepository->findAll()->toArray());
 		$accounts->removeElement($account);

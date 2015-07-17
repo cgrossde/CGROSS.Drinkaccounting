@@ -91,7 +91,7 @@
 				<f:for each="{statement.products}" as="product">
 						<td>{product.soldBottles}</td>
 				</f:for>
-				<td></td>
+				<td><b><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{statement.totalBill}</f:format.currency></b></td>
 				<td></td>
 				<td></td>
 				<td class="alignRight"><span class="badge badge-important"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{statement.newTotalBalance}</f:format.currency></span></td>

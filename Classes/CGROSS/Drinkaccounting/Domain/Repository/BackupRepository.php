@@ -15,7 +15,16 @@ use TYPO3\Flow\Annotations as FLOW3;
  */
 class BackupRepository extends \TYPO3\Flow\Persistence\Repository {
 
-
+	/**
+	 * Finds all backups, order by date
+	 *
+	 * @return \TYPO3\Flow\Persistence\QueryResultInterface The products
+	 */
+	public function findAll() {
+		$query = $this->createQuery();
+		return $query->setOrderings(array ('date' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
+			->execute();
+	}
 
 }
 ?>

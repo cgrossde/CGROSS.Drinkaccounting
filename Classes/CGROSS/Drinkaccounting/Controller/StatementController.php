@@ -720,6 +720,7 @@ class StatementController extends DefaultController {
 	public function createValuesArray(\CGROSS\Drinkaccounting\Domain\Model\Statement $statement, $consumptionArray, $addBillingInfo = FALSE) {
 		$values = array();
 		$statement->newTotalBalance  = 0;
+		$statement->totalBill = 0;
 		foreach ($statement->getUsers() as $user) {
 			$tempArray = array();
 			// Get uuid of user
@@ -764,6 +765,7 @@ class StatementController extends DefaultController {
 					'userUUID' => $userID
 				);
 				$statement->newTotalBalance += $newBalance;
+				$statement->totalBill += $current;
 			} else {
 				$values[] = array(
 					'products' => $tempArray,

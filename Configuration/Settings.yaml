@@ -6,8 +6,8 @@ CGROSS:
     system:
       dateFormat: 'Y-m-d'
       backupPath: '/tmp/'
-      mysqldumpPath: ''
-      mysqlPath: ''
+      mysqldumpPath: '/usr/bin/'
+      mysqlPath: '/usr/bin/'
     statementWizard:
       steps: 7
 

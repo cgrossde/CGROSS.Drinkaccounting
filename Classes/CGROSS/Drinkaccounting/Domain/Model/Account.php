@@ -34,7 +34,7 @@ class Account {
 	 * The transactions
 	 * @var \Doctrine\Common\Collections\Collection<\CGROSS\Drinkaccounting\Domain\Model\Transaction>
 	 * @ORM\OneToMany(mappedBy="account")
-	 * @ORM\OrderBy({"creationDate" = "ASC"})
+	 * @ORM\OrderBy({"creationDate" = "DESC"})
 	 */
 	protected $transactions;
 
@@ -143,7 +143,7 @@ class Account {
 	 * @return \Doctrine\Common\Collections\Collection<\CGROSS\Drinkaccounting\Domain\Model\Transaction> The Account's transactions
 	 */
 	public function getLastTransactions($number) {
-		return new \Doctrine\Common\Collections\ArrayCollection($this->transactions->slice(-$number));
+		return new \Doctrine\Common\Collections\ArrayCollection($this->transactions->slice(0,$number));
 	}
 
 	/**
