@@ -134,17 +134,7 @@ class PurchaseController extends DefaultController {
 		$this->addFlashMessage('Created a new purchase.');
 		$this->redirect('show', 'Purchase', NULL, array('purchase' => $newPurchase));
 	}
-
-	public function initializeAjaxUpdateAction() {
-		$this->arguments['purchase']
-	        ->getPropertyMappingConfiguration()
-	        ->forProperty('date')
-	        ->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
-	        	\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT,
-	        	'Y-m-d'
-			);
-	}
-
+	
 	/**
 	 * Updates the given purchase object
 	 *
