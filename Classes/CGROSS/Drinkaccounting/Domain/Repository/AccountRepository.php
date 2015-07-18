@@ -6,12 +6,12 @@ namespace CGROSS\Drinkaccounting\Domain\Repository;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A repository for Accounts
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class AccountRepository extends \TYPO3\Flow\Persistence\Repository {
 

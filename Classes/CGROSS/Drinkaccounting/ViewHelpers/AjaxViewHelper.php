@@ -1,7 +1,7 @@
 <?php
 namespace CGROSS\Drinkaccounting\ViewHelpers;
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * AjaxViewHelper
@@ -32,7 +32,7 @@ use TYPO3\Flow\Annotations as FLOW3;
 	/**
 	 * To generate trustedProerties token
 	 *
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \TYPO3\Flow\Mvc\Controller\MvcPropertyMappingConfigurationService
 	 */
 	protected $mvcPropertyMappingConfigurationService;

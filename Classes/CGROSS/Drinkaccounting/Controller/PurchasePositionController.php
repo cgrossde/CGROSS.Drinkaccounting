@@ -6,18 +6,18 @@ namespace CGROSS\Drinkaccounting\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use \CGROSS\Drinkaccounting\Domain\Model\PurchasePosition;
 
 /**
  * PurchasePosition controller for the Drinkaccounting package
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class PurchasePositionController extends DefaultController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\PurchaseRepository
 	 */
 	protected $purchaseRepository;

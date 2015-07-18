@@ -6,13 +6,13 @@ namespace CGROSS\Drinkaccounting\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Transaction
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Transaction {
 
@@ -27,7 +27,7 @@ class Transaction {
 	 * The date
 	 * @var \DateTime
 	 * @ORM\Column(name="transactiondate")
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $date;
 
@@ -40,7 +40,7 @@ class Transaction {
 	/**
 	 * The sum
 	 * @var double
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $sum;
 
@@ -60,7 +60,7 @@ class Transaction {
 	 * The desc
 	 * @var string
 	 * @ORM\Column(name="transactiondesc")
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $desc;
 

@@ -6,7 +6,7 @@ namespace CGROSS\Drinkaccounting\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Mvc\Controller\ActionController;
 
 /**

@@ -6,13 +6,13 @@ namespace CGROSS\Drinkaccounting\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Statement
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Statement {
 

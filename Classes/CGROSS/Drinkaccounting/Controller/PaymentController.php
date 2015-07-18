@@ -6,23 +6,23 @@ namespace CGROSS\Drinkaccounting\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Payment controller for the Drinkaccounting package
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class PaymentController extends DefaultController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\AccountRepository
 	 */
 	protected $accountRepository;

@@ -6,19 +6,19 @@ namespace CGROSS\Drinkaccounting\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use \CGROSS\Drinkaccounting\Domain\Model\Statement;
 
 /**
  * Statement controller for the Drinkaccounting package
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class StatementController extends DefaultController {
 
 	/**
 	 * @var \TYPO3\Flow\Log\SystemLoggerInterface
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 */
 	protected $systemLogger;
 
@@ -38,25 +38,25 @@ class StatementController extends DefaultController {
 	}
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\StatementRepository
 	 */
 	protected $statementRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\ProductRepository
 	 */
 	protected $productRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\PurchaseRepository
 	 */
 	protected $purchaseRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;

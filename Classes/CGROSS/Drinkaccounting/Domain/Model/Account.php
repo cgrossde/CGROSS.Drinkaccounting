@@ -6,27 +6,27 @@ namespace CGROSS\Drinkaccounting\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Account
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Account {
 
 	/**
 	 * The name
 	 * @var string
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $name;
 
 	/**
 	 * The balance
 	 * @var double
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $balance;
 

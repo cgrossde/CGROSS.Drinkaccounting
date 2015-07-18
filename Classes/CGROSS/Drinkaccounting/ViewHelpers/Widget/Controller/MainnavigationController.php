@@ -22,32 +22,32 @@ namespace CGROSS\Drinkaccounting\ViewHelpers\Widget\Controller;
  *                                                                        */
 
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  */
 class MainnavigationController extends \TYPO3\Fluid\Core\Widget\AbstractWidgetController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\ProductRepository
 	 */
 	protected $productRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\StatementRepository
 	 */
 	protected $statementRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\AccountRepository
 	 */
 	protected $accountRepository;

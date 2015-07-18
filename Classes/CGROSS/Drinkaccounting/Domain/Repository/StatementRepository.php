@@ -6,12 +6,12 @@ namespace CGROSS\Drinkaccounting\Domain\Repository;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A repository for Statements
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class StatementRepository extends \TYPO3\Flow\Persistence\Repository {
 
@@ -19,7 +19,7 @@ class StatementRepository extends \TYPO3\Flow\Persistence\Repository {
 
 	/**
 	 * @var \TYPO3\Flow\Log\SystemLoggerInterface
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 */
 	protected $systemLogger;
 

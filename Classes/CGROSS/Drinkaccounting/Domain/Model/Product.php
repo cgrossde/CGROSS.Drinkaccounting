@@ -6,52 +6,52 @@ namespace CGROSS\Drinkaccounting\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Product
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Product {
 
 	/**
 	 * The name
 	 * @var string
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $name;
 
 	/**
 	 * The price
 	 * @var double
-	 * @FLOW3\Validate(type="NotEmpty")
-	 * @FLOW3\Validate(type="NumberRange", options={ "minimum" = 0 })
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NumberRange", options={ "minimum" = 0 })
 	 */
 	protected $price;
 
 	/**
 	 * The crate size
 	 * @var integer
-	 * @FLOW3\Validate(type="NotEmpty", validationGroups={"addSubproductAction","Default"})
-	 * @FLOW3\Validate(type="NumberRange", options={ "minimum" = 0 })
+	 * @Flow\Validate(type="NotEmpty", validationGroups={"addSubproductAction","Default"})
+	 * @Flow\Validate(type="NumberRange", options={ "minimum" = 0 })
 	 */
 	protected $crateSize;
 
 	/**
 	 * The purchase price
 	 * @var double
-	 * @FLOW3\Validate(type="NotEmpty")
-	 * @FLOW3\Validate(type="NumberRange", options={ "minimum" = 0 })
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NumberRange", options={ "minimum" = 0 })
 	 */
 	protected $purchasePrice;
 
 	/**
 	 * The deposit
 	 * @var double
-	 * @FLOW3\Validate(type="NotEmpty")
-	 * @FLOW3\Validate(type="NumberRange", options={ "minimum" = 0 })
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NumberRange", options={ "minimum" = 0 })
 	 */
 	protected $deposit;
 

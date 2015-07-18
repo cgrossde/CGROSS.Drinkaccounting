@@ -6,13 +6,13 @@ namespace CGROSS\Drinkaccounting\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Payment
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Payment {
 
@@ -47,7 +47,7 @@ class Payment {
 	/**
 	 * The sum
 	 * @var double
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $sum;
 

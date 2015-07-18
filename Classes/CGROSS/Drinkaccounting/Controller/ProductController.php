@@ -6,19 +6,19 @@ namespace CGROSS\Drinkaccounting\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use \CGROSS\Drinkaccounting\Domain\Model\Product;
 
 /**
  * Product controller for the Drinkaccounting package
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class ProductController extends DefaultController {
 
 	/**
 	 * @var \TYPO3\Flow\Log\SystemLoggerInterface
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 */
 	protected $systemLogger;
 
@@ -33,19 +33,19 @@ class ProductController extends DefaultController {
 	}
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\ProductRepository
 	 */
 	protected $productRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\StatementRepository
 	 */
 	protected $statementRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \CGROSS\Drinkaccounting\Domain\Repository\PurchaseRepository
 	 */
 	protected $purchaseRepository;
@@ -329,7 +329,7 @@ class ProductController extends DefaultController {
 	 *
 	 * @param \CGROSS\Drinkaccounting\Domain\Model\Product $subproduct The subproduct
 	 * @param \CGROSS\Drinkaccounting\Domain\Model\Product $parent The parent of the subproduct
-	 * @FLOW3\ValidationGroups({"addSubproductAction"})
+	 * @Flow\ValidationGroups({"addSubproductAction"})
 	 */
 	public function addSubproductAction(\CGROSS\Drinkaccounting\Domain\Model\Product $subproduct, \CGROSS\Drinkaccounting\Domain\Model\Product $parent) {
 		// Make a clone of the parent

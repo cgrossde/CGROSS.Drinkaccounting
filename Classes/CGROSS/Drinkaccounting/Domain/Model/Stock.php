@@ -6,13 +6,13 @@ namespace CGROSS\Drinkaccounting\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Stock
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Stock {
 
@@ -26,7 +26,7 @@ class Stock {
 	/**
 	 * The bottle amount
 	 * @var integer
-	 * @FLOW3\Validate(type="NumberRange", options={ "minimum" = 0 })
+	 * @Flow\Validate(type="NumberRange", options={ "minimum" = 0 })
 	 */
 	protected $bottleAmount;
 
