@@ -126,6 +126,7 @@ class BackupController extends DefaultController {
 	 */
 	public function deleteAction(Backup $backup) {
 		$this->backupRepository->remove($backup);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Deleted backup.');
 		$this->redirect('index');
 	}

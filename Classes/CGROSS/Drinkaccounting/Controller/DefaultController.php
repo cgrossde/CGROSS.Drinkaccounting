@@ -20,6 +20,12 @@ class DefaultController extends ActionController {
 	 */
 	protected $lang;
 
+	/**
+     * @Flow\Inject
+     * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+     */
+    protected $persistenceManager;
+
 	public function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
 		$detector   = new \TYPO3\Flow\I18n\Detector();
 		$this->lang = $detector->detectLocaleFromHttpHeader($_SERVER["HTTP_ACCEPT_LANGUAGE"]);

@@ -123,6 +123,7 @@ class StatementController extends DefaultController {
 	 */
 	public function ajaxUpdateAction(Statement $statement) {
 		$this->statementRepository -> update($statement);
+		$this->persistenceManager->persistAll();
 		return ($this->arguments['statement']->isValid()) ? "VALID" : "INVALID";
 	}
 
@@ -140,6 +141,7 @@ class StatementController extends DefaultController {
 		}
 		$statement->setPurchases(NULL);
 		$this -> statementRepository -> remove($statement);
+		$this->persistenceManager->persistAll();
 		$this -> addFlashMessage('Deleted a statement.');
 		$this -> redirect('index');
 	}
@@ -196,6 +198,7 @@ class StatementController extends DefaultController {
 			$statement->setStep(2);
 			$statement->setStepController('config');
 			$this->statementRepository->update($statement);
+			$this->persistenceManager->persistAll();
 		#}
 
 		$this->view->assign('statement', $statement);
@@ -314,6 +317,7 @@ class StatementController extends DefaultController {
 		}
 
 		$this -> statementRepository -> update($statement);
+		$this->persistenceManager->persistAll();
 		$this -> addFlashMessage('Updated config');
 		$this -> redirect('config', 'Statement', NULL, array('statement' => $statement));
 	}
@@ -345,6 +349,7 @@ class StatementController extends DefaultController {
 			$statement->setStep(3);
 			$statement->setStepController('purchases');
 			$this->statementRepository->update($statement);
+			$this->persistenceManager->persistAll();
 		#}
 
 		$this->view->assign('statement', $statement);
@@ -388,6 +393,7 @@ class StatementController extends DefaultController {
 		}
 
 		$this -> statementRepository -> update($statement);
+		$this->persistenceManager->persistAll();
 		$this -> addFlashMessage('Updated purchases');
 		$this -> redirect('purchases', 'Statement', NULL, array('statement' => $statement));
 	}
@@ -425,6 +431,7 @@ class StatementController extends DefaultController {
 
 		$this->view->assign('steps', $this->settings['statementWizard']['steps']);
 		$this->view->assign('progress', (100/$this->settings['statementWizard']['steps']) * 4);
+		$this->persistenceManager->persistAll();
 	}
 
 	/**
@@ -452,6 +459,7 @@ class StatementController extends DefaultController {
 		}
 
 		$this -> statementRepository -> update($statement);
+		$this->persistenceManager->persistAll();
 		$this -> addFlashMessage('Updated config');
 		$this -> redirect('stocks', 'Statement', NULL, array('statement' => $statement));
 	}
@@ -490,6 +498,7 @@ class StatementController extends DefaultController {
 
 		$this->view->assign('steps', $this->settings['statementWizard']['steps']);
 		$this->view->assign('progress', (100/$this->settings['statementWizard']['steps']) * 5);
+		$this->persistenceManager->persistAll();
 	}
 
 	/**
@@ -523,6 +532,7 @@ class StatementController extends DefaultController {
 		}
 
 		$this->statementRepository->update($statement);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Updated consumption');
 		$this->redirect('consumption', 'Statement', NULL, array('statement' => $statement));
 	}
@@ -555,6 +565,7 @@ class StatementController extends DefaultController {
 
 		$this->view->assign('steps', $this->settings['statementWizard']['steps']);
 		$this->view->assign('progress', (100/$this->settings['statementWizard']['steps']) * 6);
+		$this->persistenceManager->persistAll();
 	}
 
 	/**
@@ -607,7 +618,7 @@ class StatementController extends DefaultController {
 
 		// Update statement
 		$this->statementRepository->update($statement);
-
+		$this->persistenceManager->persistAll();
 		// Return to final statement
 		$this->redirect('final', 'Statement', NULL, array('statement' => $statement));
 	}
