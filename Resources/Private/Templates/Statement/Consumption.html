@@ -88,9 +88,16 @@
 			</tr>
 			<!-- Loss in euro -->
 			<tr>
-				<th class="alignRight">Total loss: <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{statement.totalLoss}</f:format.currency></th>
+				<th class="alignRight"><f:translate locale="{langDetector.language}" id="statement.totalLoss">Total loss:</f:translate><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{statement.totalLoss}</f:format.currency></th>
 				<f:for each="{statement.products}" as="product">
 						<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{product.lossEuro}</f:format.currency></td>
+				</f:for>
+			</tr>
+			<!-- Loss per bottle -->
+			<tr>
+				<th class="alignRight"><f:translate locale="{langDetector.language}" id="statement.lossFeePerBottle">Loss fee per bottle</f:translate></th>
+				<f:for each="{statement.products}" as="product">
+						<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{product.lossPerBottle}</f:format.currency></td>
 				</f:for>
 			</tr>
 		</table>

@@ -46,7 +46,6 @@ class PurchasePositionController extends DefaultController {
 	public function ajaxEditAction(\CGROSS\Drinkaccounting\Domain\Model\Purchase $purchase, \CGROSS\Drinkaccounting\Domain\Model\PurchasePosition $purchasePosition) {
 		$purchase->updatePurchasePosition($purchasePosition);
 		$this->purchaseRepository->update($purchase);
-
 		return true;
 	}
 
@@ -62,6 +61,7 @@ class PurchasePositionController extends DefaultController {
 	public function removeAction(\CGROSS\Drinkaccounting\Domain\Model\Purchase $purchase, \CGROSS\Drinkaccounting\Domain\Model\PurchasePosition $purchasePosition) {
 		$purchase->removePurchasePosition($purchasePosition);
 		$this->purchaseRepository->update($purchase);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Your new purchaseposition was removed.');
 		$this->redirect('show', 'Purchase', NULL, array('purchase' => $purchase));
 	}

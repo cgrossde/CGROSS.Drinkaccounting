@@ -88,6 +88,7 @@ class AccountController extends DefaultController {
 	 */
 	public function deleteAction(Account $account) {
 		$this->accountRepository->remove($account);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Deleted a account.');
 		$this->redirect('index');
 	}
@@ -119,6 +120,7 @@ class AccountController extends DefaultController {
 		// Make updates
 		$this->accountRepository->update($account);
 		$this->accountRepository->update($newAccount);
+		$this->persistenceManager->persistAll();
 
 		$this->addFlashMessage('Rebooked to '.$newAccount->getName().' done.');
 		$this->redirect('show', 'Account', NULL, array('account' => $account));

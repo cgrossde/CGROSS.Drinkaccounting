@@ -185,7 +185,6 @@ class ProductController extends DefaultController {
 	public function usedUpdateAction(Product $product) {
 
 		$this->productRepository->update($product);
-
 		$this->redirect('used', 'Product', NULL, array('product' => $product));
 	}
 
@@ -359,6 +358,7 @@ class ProductController extends DefaultController {
 		else {
 			$this->addFlashMessage('Subproduct deleted.');
 			$this->productRepository->remove($subproduct);
+			$this->persistenceManager->persistAll();
 		}
 		$this->redirect('edit', 'Product', NULL, array('product' => $subproduct->getParent()));
 	}
@@ -481,6 +481,7 @@ class ProductController extends DefaultController {
 	public function deactivateAction(Product $product) {
 		$product->setActive(FALSE);
 		$this->productRepository->update($product);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Deactivated product '.$product->getName().'.');
 		$this->redirect('index');
 	}
@@ -494,6 +495,7 @@ class ProductController extends DefaultController {
 	public function activateAction(Product $product) {
 		$product->setActive(TRUE);
 		$this->productRepository->update($product);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Activated product '.$product->getName().'.');
 		$this->redirect('index');
 	}
@@ -529,7 +531,7 @@ class ProductController extends DefaultController {
 			$this->productRepository->remove($product);
 			$this->addFlashMessage('Deleted product '.$product->getName().'.');
 		}
-
+		$this->persistenceManager->persistAll();
 		$this->redirect('inactive');
 	}
 }

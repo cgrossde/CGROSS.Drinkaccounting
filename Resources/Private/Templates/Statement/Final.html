@@ -61,8 +61,8 @@
 						<td>{product.purchasedBottles}</td>
 				</f:for>
 				<th><f:translate locale="{langDetector.language}" id="statement.currentStatement">Current (nt)</f:translate></th>
-				<th><f:translate locale="{langDetector.language}" id="statement.oldBalance">Old Balance (nt)</f:translate></th>
 				<th><f:translate locale="{langDetector.language}" id="statement.lossFee">Lossfee (nt)</f:translate></th>
+				<th><f:translate locale="{langDetector.language}" id="statement.oldBalance">Old Balance (nt)</f:translate></th>
 				<th><f:translate locale="{langDetector.language}" id="statement.newBalance">New Balance (nt)</f:translate></th>
 			</tr>
 
@@ -79,8 +79,8 @@
 							</td>
 					</f:for>
 					<td class="alignRight"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.current}</f:format.currency></td>
-					<td class="alignRight"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.oldBalance}</f:format.currency></td>
 					<td class="alignRight"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.lossFee}</f:format.currency></td>
+					<td class="alignRight"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.oldBalance}</f:format.currency></td>
 					<td class="alignRight"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{user.newBalance}</f:format.currency></td>
 				</tr>
 			</f:for>
@@ -120,9 +120,20 @@
 			</tr>
 			<!-- Loss in euro -->
 			<tr>
-				<th class="alignRight">Total loss: <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{statement.totalLoss}</f:format.currency></th>
+				<th class="alignRight"><f:translate locale="{langDetector.language}" id="statement.lossValue">Loss Value</f:translate></th>
 				<f:for each="{statement.products}" as="product">
 						<td class="alignRight"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{product.lossEuro}</f:format.currency></td>
+				</f:for>
+				<td><b><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{statement.totalLoss}</f:format.currency></b></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<!-- Loss per bottle -->
+			<tr>
+				<th class="alignRight"><f:translate locale="{langDetector.language}" id="statement.lossFeePerBottle">Loss fee per bottle</f:translate></th>
+				<f:for each="{statement.products}" as="product">
+						<td class="alignRight"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{product.lossPerBottle}</f:format.currency></td>
 				</f:for>
 				<td></td>
 				<td></td>

@@ -73,7 +73,6 @@ class PaymentController extends DefaultController {
 	public function ajaxEditAction(\CGROSS\Drinkaccounting\Domain\Model\User $user, \CGROSS\Drinkaccounting\Domain\Model\Payment $payment) {
 		$user->updatePayment($payment);
 		$this->userRepository->update($user);
-
 		return true;
 
 	}
@@ -93,6 +92,7 @@ class PaymentController extends DefaultController {
 			// Make updates
 			$this->accountRepository->update($cancelPayment->getTransaction()->getAccount());
 			$this->userRepository->update($user);
+			$this->persistenceManager->persistAll();
 			// Add flashmessage and redirect
 			$this->addFlashMessage('The Payment was deleted');
 			$this->redirect('show', 'User', NULL, array('user' => $user));

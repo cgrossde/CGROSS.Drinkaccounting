@@ -649,6 +649,8 @@ class StatementController extends DefaultController {
 
 		// Total loss in euro
 		$statement->totalLoss = 0;
+		// Unaccounted losses - there was loss in a product, but no purchases
+		$statement->unaccountedLoss = 0;
 
 		// Workaround to get uuid of product and bottleAmount for stock fields
 		$products = $statement->getProducts();
@@ -690,6 +692,13 @@ class StatementController extends DefaultController {
 			// Loss in euro
 			$products[$p]->lossEuro = $products[$p]->loss * $products[$p]->getPrice();
 
+			// Calculate loss per bottle
+			if($products[$p]->soldBottles != 0) {
+				$products[$p]->lossPerBottle = $products[$p]->lossEuro / $products[$p]->soldBottles;
+			} else {
+				$products[$p]->lossPerBottle = 0;
+				$statement->unaccountedLoss += $products[$p]->lossEuro;
+			}
 			// Add to total loss
 			$statement->totalLoss += $products[$p]->lossEuro;
 		}
@@ -762,7 +771,15 @@ class StatementController extends DefaultController {
 			}
 			// If billingInfo, add current, lossFee, balance old and new
 			if($addBillingInfo) {
-				$lossFee = ($statement->isInitialStockStatement()) ? 0 : $statement->totalLoss / count($statement->getUsers());
+				$lossFee = 0;
+				if(!$statement->isInitialStockStatement()) {
+					foreach ($statement->getProducts() as $product) {
+						$productID = $this->persistenceManager->getIdentifierByObject($product);
+						$value = (isset($consumptionArray[$userID][$productID])) ? $consumptionArray[$userID][$productID] : 0;
+						$lossFee += $product->lossPerBottle * $value;
+					}
+					$lossFee += $statement->unaccountedLoss / count($statement->getUsers());
+				}
 				// If statement was already billed, get balance from payment
 				$oldBalance = (!$statement->isInitialStockStatement() && $statement->getBilled() && $statement->containsPaymentWithUser($user)) ? $statement->containsPaymentWithUser($user)->getBalanceOld() : $user->getBalance();
 				$newBalance = (!$statement->isInitialStockStatement() && $statement->getBilled() && $statement->containsPaymentWithUser($user)) ? $statement->containsPaymentWithUser($user)->getBalanceNew() : $user->getBalance() - $current - $lossFee;
