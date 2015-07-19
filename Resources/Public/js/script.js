@@ -24,5 +24,7 @@ $(document).ready(function() {
 		return "info";
 	}
 	
+	// Bad, quick fix for title with html attributes (due to bad template and ajax)
+	$('title').html($('title').text().replace(/(<([^>]+)>)/ig,""));
 
 });
