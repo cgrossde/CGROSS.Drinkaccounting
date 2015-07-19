@@ -160,6 +160,7 @@ class PurchaseController extends DefaultController {
 
 
 			$this->purchaseRepository->remove($purchase);
+			$this->persistenceManager->persistAll();
 			$this->addFlashMessage('Deleted a purchase.');
 		} else {
 			$this->addFlashMessage('Could not delete purchase. Purchase alread assigned to statement.');

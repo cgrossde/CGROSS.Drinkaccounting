@@ -351,9 +351,15 @@
 			
 			<trans-unit id="statement.lostBottles" approved="yes">
 				<source>Loss</source> <target state="translated">Verlust</target></trans-unit>
-			
+
 			<trans-unit id="statement.totalLoss" approved="yes">
-				<source>Total loss:</source> <target state="translated">Gesamtverlust:</target></trans-unit>
+				<source>Total loss:</source> <target state="translated">Gesamtverlust</target></trans-unit>
+
+			<trans-unit id="statement.lossValue" approved="yes">
+				<source>Loss Value</source> <target state="translated">Verlustwert</target></trans-unit>
+
+			<trans-unit id="statement.lossFeePerBottle">
+				<source>Loss fee per bottle</source> <target state="translated">Verlustumlage pro Flasche</target></trans-unit>
 			
 			<trans-unit id="statement.completeStatement" approved="yes">
 				<source>Complete Statement</source> <target state="translated">Abrechnung abschließen</target></trans-unit>

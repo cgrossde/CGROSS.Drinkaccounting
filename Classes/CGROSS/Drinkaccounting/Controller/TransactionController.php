@@ -40,7 +40,6 @@ class TransactionController extends DefaultController {
 		// Add transaction
 		$account->addTransaction($newTransaction);
 		$this->accountRepository->update($account);
-
 		$this->addFlashMessage('Your new transaction was created.');
 		$this->redirect('show', 'Account', NULL, array('account' => $account));
 	}
@@ -62,7 +61,6 @@ class TransactionController extends DefaultController {
 	public function editAction(\CGROSS\Drinkaccounting\Domain\Model\Account $account, \CGROSS\Drinkaccounting\Domain\Model\Transaction $transaction) {
 		$account->updateTransaction($transaction);
 		$this->accountRepository->update($account);
-
 		return "SUCCESS";
 
 	}
@@ -80,6 +78,7 @@ class TransactionController extends DefaultController {
 			// Cancel transaction
 			$account->cancelTransaction($transaction);
 			$this->accountRepository->update($account);
+			$this->persistenceManager->persistAll();
 			// Add flashmessage and redirect
 			$this->addFlashMessage('The Transaction was cancelled');
 			$this->redirect('show', 'Account', NULL, array('account' => $account));

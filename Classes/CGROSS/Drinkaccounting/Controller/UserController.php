@@ -121,7 +121,6 @@ class UserController extends DefaultController {
 	 */
 	public function ajaxUpdateAction(User $user) {
 		$this->userRepository->update($user);
-
 		return "SUCCESS";
 	}
 
@@ -134,6 +133,7 @@ class UserController extends DefaultController {
 	 */
 	public function deleteAction(User $user) {
 		$this->userRepository->remove($user);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Deleted a user.');
 		$this->redirect('index');
 	}
@@ -147,6 +147,7 @@ class UserController extends DefaultController {
 	public function activateAction(User $user) {
 		$user->setActive(TRUE);
 		$this->userRepository->update($user);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('User "'.$user->getDisplayName().'" has been activated');
 		$this->redirect('index');
 	}
@@ -160,6 +161,7 @@ class UserController extends DefaultController {
 	public function deactivateAction(User $user) {
 		$user->setActive(FALSE);
 		$this->userRepository->update($user);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('User "'.$user->getDisplayName().'" has been deactivated');
 		$this->redirect('inactive');
 	}
@@ -206,7 +208,6 @@ class UserController extends DefaultController {
 		// Set deposit
 		$user->setDeposit($newDeposit);
 		$this->userRepository->update($user);
-
 		$this->addFlashMessage('The deposit was updated.'.$account->getName());
 		$this->redirect('show', 'User', NULL, array('user' => $user));
 	}
